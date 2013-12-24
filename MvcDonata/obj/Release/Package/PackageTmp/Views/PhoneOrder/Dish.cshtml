@@ -1,0 +1,33 @@
+﻿@model MvcDonata.Models.DishModel
+@using MvcDonata.Models       
+@using System.IO
+   
+<div class="boxgrid">
+    <a class="add2Order" href="#" dishName="@Model.Name" price="@Model.Price" typeName="@Model.ClassName">
+        @{
+            var file = BusinessObject.GetImageFileName(Model);
+            var path=Server.MapPath(string.Format("/Content/Images/{0}.JPG",file));
+            if(!File.Exists(path))
+            {
+                file="logo";
+            }
+        
+        <img src="@string.Format("../../Content/images/{0}.jpg",file)"  alt="@Model.Name"/>
+            }
+    </a>
+    <div class="cover boxcaption">
+        <div><span class="dishName">@Model.Name</span>    
+        <span class="price">     
+            @if (Model.Price > 0)
+            {
+                
+                    @string.Format("{0:c}", Model.Price)
+               
+            }
+           </span>
+         
+        </div>
+    </div>
+</div>
+
+

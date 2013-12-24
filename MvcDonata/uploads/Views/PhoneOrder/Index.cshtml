@@ -1,0 +1,146 @@
+﻿@{
+    ViewBag.Title = "外送订单查看";
+}
+<script type="text/javascript" src="/Scripts/dateformat.js"></script>
+<script type="text/javascript" src="/Scripts/jquery.datagrid.js"></script>
+<script type="text/javascript" src="/Scripts/phoneorder.js"></script>
+<style type="text/css">
+#orderList tr.pager ul.pager
+{
+    text-align:center;
+    vertical-align:middle;
+}
+#orderList tr.pager ul.pager li
+{
+    margin:0.2em;
+}
+#orderList tr.pager ul.pager li a
+{
+    margin:0.5em;
+    padding:0.5em 0.5em 0.5em 0.5em;
+}
+#orderList tr.pager ul.pager li:hover
+{
+    background-color:#336600;  
+}
+.currentPager
+{
+    border:1px;
+    border-color:Maroon;
+    border-style:dotted;
+}
+#orderList tr.datarow:hover
+{
+    background-color:Aqua;
+}
+#orderList tr.currentRow
+{
+    border:1px;
+    border-color:Red;
+    border-style:dashed;
+}
+.datarowOdd
+{
+    color:#4A3C8C;background-color:#E7E7FF;
+}
+.datarowEven
+{
+    color:#4A3C8C;background-color:#F7F7F7;
+}
+
+#nodesList li
+{
+    list-style-type:none;
+    line-height:30px;
+    display:inline;
+    margin:1em;
+}
+#nodesList li div.offline
+{
+    width:50px;
+    height:50px;
+    display:inline;
+    background:red;
+    
+}
+#nodesList li div.online
+{
+    width:50px;
+    height:50px;
+    display:inline;
+    background:green;
+    
+}
+
+</style>
+<h2>外送订单列表</h2>
+<div>
+<h3>各分店在线情况:</h3>
+    <ul id="nodesList">
+        <li class="template" style="display:none;">
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;</div><span class="node">test</span>
+        </li>
+    </ul>
+</div>
+<div id="statusBar"></div>
+<div>
+    <span>选择分店:</span>
+    <select id="selectedNode">
+        <option value="全部">全部</option>
+    </select>
+    <span>选择时间:</span>
+    <input id="txtSelectedDate" type="text" readonly="readonly" />
+    <input id="btnRefresh" type="button" value="刷新" />
+</div>
+
+
+<div>
+<input type="text" id="phone" />
+<input type="button" id="createCall" value="创建来电" />
+</div>
+<div><span id="totalAmount"></span></div>
+<table cellspacing="0" cellpadding="3" rules="rows" id="orderList" style="background-color:White;border-color:#E7E7FF;border-width:1px;border-style:None;width:755px;border-collapse:collapse;width:90%">
+	<tr style="color:#F7F7F7;background-color:#4A3C8C;font-weight:bold;" class="header">
+			<td datafield="BarCode" width="50px">编号</td>
+            <td datafield="Phone">客户电话</td>
+            <td datafield="Address">客户住址</td>
+            <td datafield="Node">分店</td>
+            <td datafield="Total">总金额</td>
+            <td datafield="Time">时间</td>
+            <td datafield="Received">是否收到</td>
+   </tr>
+<tr class="template" style="display:none">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="pager">
+    <td colspan="7"><ul class="pager"><li class="template" style="display: inline;list-style: none;" ><a href="#"></a></li></ul></td>
+</tr>
+</table>
+
+<table style="display:none;width:100%" id="orderDetails">
+<tr style="color:White;background-color:#1C5E55;font-weight:bold;" class="header">
+			<td datafield="Name">名称</td>
+            <td datafield="Price">单价</td>
+            <td datafield="Amount">数量</td>
+            <td datafield="Total">小计</td>
+            <td datafield="Remark">说明</td>
+</tr>
+<tr class="template" style="display:none;">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="remark"><td colspan="5" class="remark"></td></tr> @*备注*@
+</table>
+
+<div id="imageCache" style="display:none;">
+
+</div>

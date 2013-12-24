@@ -1,0 +1,11 @@
+﻿@using MvcDonata.Models;
+@using MvcDonata;
+@if(Request.IsAuthenticated) {
+    var str=new MvcDonata.DonataRoleProvider().GetRolesForUser(User.Identity.Name).GetString();
+    <text>欢迎 <strong>@User.Identity.Name</strong>,<span>@str</span>
+    [ @Html.ActionLink("退出", "LogOff", "Account") ]</text>
+}
+else {
+    @:[ @Html.ActionLink("登录", "LogOn", "Account") ]
+}
+<span>@BusinessObject.Version</span>

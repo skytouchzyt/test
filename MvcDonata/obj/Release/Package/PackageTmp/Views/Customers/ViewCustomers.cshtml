@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "顾客信息管理";
+}
+<script src="@Url.Content("~/scripts/linq.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/scripts/angular.viewcustomers.js")" type="text/javascript"></script>
+<div ng-app="customersModule" ng-controller="customersController">
+    <div><span>搜索VIP:</span><input ng-model="search" ng-change="searchPage()" /></div>
+    <table style="width:100%;">
+        <tr style="color:White;background-color:#1C5E55;font-weight:bold;" class="header">
+            <td>电话</td>
+            <td>上次生日优惠时间</td>
+            <td>VIP号</td>
+            <td>积分</td>
+            <td>操作</td>
+        </tr>
+        <tr ng-repeat="c in customers">
+            <td style="text-align:left;">{{c.Phone}}</td>
+            <td style="text-align:left;">{{c.LastBirthdayDiscounted}}</td>
+            <td style="text-align:left;">{{c.VIP_Number}}</td>
+            <td style="text-align:right;">{{c.Score}}</td>
+            <td>
+                <input type="button" value="修改" ng-click="edit($index)" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5"><a ng-click="pre()">上一页</a><span>共{{pages}}页.</span><a ng-click="next()">下一页</a></td>
+        </tr>
+    </table>
+</div>

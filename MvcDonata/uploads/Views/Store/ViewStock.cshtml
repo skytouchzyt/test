@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "查看库存";
+}
+
+<h2>库存查看</h2>
+
+<style type="text/css">
+div.view
+ {
+     background:#5C87B2;
+     padding:0;
+     margin:0;
+ }
+</style>
+
+<script src="@Url.Content("~/Scripts/jquery.datagrid.js")" type="text/javascript"></script>
+
+<div>
+    <span style="color:White;">选择供货商:</span>
+    <select class="Provider"></select>
+</div>
+
+<div id="createOrder">
+@Html.Partial("CreateOrder")
+</div>
+<script src="@Url.Content("~/scripts/ViewStock.js")" type="text/javascript"></script>
+
+@Html.Partial("LoadingDialog")

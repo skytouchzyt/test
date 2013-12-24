@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript" src="/Scripts/dateformat.js"></script>
+<script type="text/javascript" src="/Scripts/jquery.datagrid.js"></script>
+<script type="text/javascript" src="/Scripts/dineorder.js"></script>
+
+
+<h2>堂食订单列表</h2>
+<div id="statusBar"></div>
+<div>
+    <span>选择分店:</span>
+    <select id="selectedNode">
+        <option value="全部">全部</option>
+    </select>
+    <span>选择时间:</span>
+    <input id="txtSelectedDate" type="text" readonly="readonly" />
+    <input id="btnRefresh" type="button" value="刷新" />
+</div>
+<style type="text/css">
+#orderList
+{
+    width:100%;
+}
+#orderList tr.pager ul.pager
+{
+    text-align:center;
+    vertical-align:middle;
+}
+#orderList tr.pager ul.pager li
+{
+    margin:0.2em;
+}
+#orderList tr.pager ul.pager li a
+{
+    margin:0.5em;
+    padding:0.5em 0.5em 0.5em 0.5em;
+}
+#orderList tr.pager ul.pager li:hover
+{
+    background-color:#336600;  
+}
+.currentPager
+{
+    border:1px;
+    border-color:Maroon;
+    border-style:dotted;
+}
+#orderList tr.datarow:hover
+{
+    background-color:Aqua;
+}
+</style>
+<div><span id="totalAmount"></span></div>
+<table id="orderList">
+<tr style="color:White;background-color:#1C5E55;font-weight:bold;" class="header">
+			<td scope="col" datafield="BarCode" width="100px">编号</td>
+            <td scope="col" datafield="TableNumber">桌号</td>
+            <td scope="col" datafield="CustomerCount">人数</td>
+            <td scope="col" datafield="Total">总金额</td>
+            <td scope="col" datafield="Discount">折扣</td>
+            <td scope="col" datafield="Node">所属分店</td>
+            <td scope="col" datafield="Time">下单时间</td>
+</tr>
+<tr class="template" style="display:none">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="pager">
+    <td colspan="7"><ul class="pager"><li class="template" style="display: inline;list-style: none;"><a href="#"></a></li></ul></td>
+</tr>
+</table>
+
+<table style="display:none;width:100%" id="orderDetails">
+<tr style="color:White;background-color:#1C5E55;font-weight:bold;" class="header">
+			<td datafield="DishName">名称</td>
+            <td datafield="Price">单价</td>
+            <td datafield="Amount">数量</td>
+            <td datafield="Total">小计</td>
+            <td datafield="Remark">说明</td>
+</tr>
+<tr class="template" style="display:none;">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+<tr class="remark"><td colspan="5" class="remark"></td></tr> @*备注*@
+</table>

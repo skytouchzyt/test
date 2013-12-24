@@ -1,0 +1,136 @@
+﻿@using MvcDonata.Models
+@model MvcDonata.Models.CustomerModel
+
+
+
+<h2>@ViewBag.Title</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/editcustomer.js")" type="text/javascript"></script>
+<style type="text/css">
+#columnLeft {
+ float: left;
+ width: 30%;
+ background: #fff;
+ margin-top: 0;
+ margin-right: 1.67em;
+ padding-top: 0;
+ padding-right: 1em;
+ padding-bottom: 20px;
+}
+
+#columnRight {
+ padding-left: 2em;
+ margin-top: 0;
+ padding-top: 0;
+}
+
+#addresses 
+{
+     text-align:left;
+     list-style-type:none
+}
+
+#addresses li 
+{
+    width:300px;
+    border:1px solid #336699;
+    margin:5px 5px 5px 5px;
+    padding:12px 12px 12px 12px;
+    float:left;
+}
+
+#addresses li input[type=button]
+{
+     float:right;
+}
+
+#addresses li input[type=text]
+{
+    width:250px;
+}
+</style>
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>顾客资料</legend>
+
+        <span>@ViewBag.ErrorMessage</span>
+
+@Html.HiddenFor(m=>m.ID)
+<div id="columnLeft">
+         <div class="editor-label">
+            <label>电话</label>
+        </div>
+        <div class="editor-field">
+            <input class="text-box single-line txtPhone" type="text"/>
+            <span class="field-validation-valid"></span>
+        </div>
+
+        <div class="editor-label">
+            <label>姓名</label>
+        </div>
+        <div class="editor-field">
+            <input class="text-box single-line txtName" type="text"/>
+            <span class="field-validation-valid"></span>
+        </div>
+
+        <div class="editor-label">
+            <label>性别</label>
+        </div>
+        <div class="editor-field">
+            <input checked="checked" data-val="true" data-val-required="性别 字段是必需的。"  name="Sex" type="radio" value="0" />男士
+            <input  name="Sex" type="radio" value="1" />女士
+            <span class="field-validation-valid" data-valmsg-for="Sex" data-valmsg-replace="true"></span>
+        </div>
+
+        
+        <p>
+            <input type="button"  id="save" value="保存" />
+        </p>
+</div>
+<div id="columnRight">
+<input type="button" value="增加"  id="insertAddress"/>
+<ul id="addresses">
+    @*地址模板,每一个地址用一个li显示出来*@
+    <li class="template" style="display:none">
+        <div class="editor-label">
+            <label >城市</label>
+        </div>
+
+        <div class="editor-field">
+            <select>
+                <option selected="selected" value="北京">北京</option>
+            </select>
+            <span></span>
+        </div>
+
+
+
+        <div class="editor-label">
+            <label>地址</label>
+        </div>
+
+        <div class="editor-field">
+            <input class="text-box single-line txtAddress" type="text"/>
+            <span class="field-validation-valid"></span>
+        </div>
+        <input type="button" value="删除" class="delete"/>
+     </li>
+</ul>
+</div>
+        
+
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("返回顾客列表", "Index", new { Page = ViewBag.Page })
+</div>
+
+<div id="dialogLoading" style="display:none">
+    加载数据,请稍后...
+</div>

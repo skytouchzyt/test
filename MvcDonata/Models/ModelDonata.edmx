@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="donataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="donataModelStoreContainer">
+          <EntitySet Name="Addresses" EntityType="donataModel.Store.Addresses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Clocking" EntityType="donataModel.Store.Clocking" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Commands" EntityType="donataModel.Store.Commands" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Customers" EntityType="donataModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Employee" EntityType="donataModel.Store.Employee" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderDetails" EntityType="donataModel.Store.OrderDetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Products" EntityType="donataModel.Store.Products" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Store" EntityType="donataModel.Store.Store" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StoreDetails" EntityType="donataModel.Store.StoreDetails" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Addresses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="City" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Address" Type="varchar(max)" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="LastNode" Type="varchar" MaxLength="50" />
+          <Property Name="LastUsedTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Clocking">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="Node" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Commands">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Command" Type="varchar(max)" Nullable="false" />
+          <Property Name="Node" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="Employee" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Sex" Type="int" Nullable="false" />
+          <Property Name="Phone" Type="varchar(max)" Nullable="false" />
+          <Property Name="Total" Type="decimal" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+          <Property Name="LastOrderTime" Type="datetime" />
+          <Property Name="ActivedDegree" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Number" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="BankCard" Type="varchar" MaxLength="50" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="Post" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Salary" Type="decimal" Nullable="false" />
+          <Property Name="Node" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Phone" Type="nchar" MaxLength="10" />
+          <Property Name="Actived" Type="bit" Nullable="false" />
+          <Property Name="LastLogin" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="varchar(max)" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="OrderType" Type="int" Nullable="false" />
+          <Property Name="Index" Type="int" Nullable="false" />
+          <Property Name="ParentIndex" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Standards" Type="varchar(max)" />
+          <Property Name="Unit" Type="varchar" MaxLength="20" />
+          <Property Name="Price" Type="decimal" Nullable="false" Scale="4" />
+          <Property Name="Remark" Type="varchar(max)" />
+          <Property Name="MaterialType" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Provider" Type="varchar(max)" />
+          <Property Name="LastAccess" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Remark" Type="varchar(max)" Nullable="false" />
+          <Property Name="Node" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="StoreType" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="Total" Type="decimal" Nullable="false" />
+          <Property Name="Employee" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="StoreDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StoreID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="Price" Type="decimal" Nullable="false" Scale="4" />
+          <Property Name="Amount" Type="decimal" Nullable="false" Scale="4" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="donataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DonataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="donataModel.Addresses" />
+          <EntitySet Name="Clocking" EntityType="donataModel.Clocking" />
+          <EntitySet Name="Customers" EntityType="donataModel.Customers" />
+          <EntitySet Name="Employee" EntityType="donataModel.Employee" />
+          <EntitySet Name="OrderDetails" EntityType="donataModel.OrderDetails" />
+          <EntitySet Name="Store" EntityType="donataModel.Store" />
+          <EntitySet Name="Products" EntityType="donataModel.Products" />
+          <EntitySet Name="Commands" EntityType="donataModel.Commands" />
+          <EntitySet Name="StoreDetails" EntityType="donataModel.StoreDetails" />
+        </EntityContainer>
+        <EntityType Name="Addresses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="LastNode" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LastUsedTime" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="Clocking">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="Time" Type="DateTime" Nullable="false" />
+          <Property Name="Node" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Sex" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="CreatedTime" Type="DateTime" Nullable="false" />
+          <Property Name="LastOrderTime" Type="DateTime" />
+          <Property Name="ActivedDegree" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="BankCard" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" />
+          <Property Name="Post" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Salary" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Node" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Actived" Type="Boolean" Nullable="false" />
+          <Property Name="LastLogin" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="OrderType" Type="Int32" Nullable="false" />
+          <Property Name="Index" Type="Int32" Nullable="false" />
+          <Property Name="ParentIndex" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Remark" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Node" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="StoreType" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="Time" Nullable="false" />
+          <Property Type="Decimal" Name="Total" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Employee" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Standards" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Unit" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+          <Property Type="String" Name="Remark" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MaterialType" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Provider" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastAccess" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Commands">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Command" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Node" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Time" Nullable="false" />
+          <Property Type="String" Name="Employee" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StoreDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="StoreID" Nullable="false" />
+          <Property Type="Int32" Name="ProductID" />
+          <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="4" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="donataModelStoreContainer" CdmEntityContainer="DonataEntities">
+          <EntitySetMapping Name="Addresses"><EntityTypeMapping TypeName="donataModel.Addresses"><MappingFragment StoreEntitySet="Addresses">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+            <ScalarProperty Name="City" ColumnName="City" />
+            <ScalarProperty Name="Address" ColumnName="Address" />
+            <ScalarProperty Name="Count" ColumnName="Count" />
+            <ScalarProperty Name="LastNode" ColumnName="LastNode" />
+            <ScalarProperty Name="LastUsedTime" ColumnName="LastUsedTime" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Clocking"><EntityTypeMapping TypeName="donataModel.Clocking"><MappingFragment StoreEntitySet="Clocking">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+            <ScalarProperty Name="Time" ColumnName="Time" />
+            <ScalarProperty Name="Node" ColumnName="Node" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Customers"><EntityTypeMapping TypeName="donataModel.Customers"><MappingFragment StoreEntitySet="Customers">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Sex" ColumnName="Sex" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="Total" ColumnName="Total" />
+            <ScalarProperty Name="Count" ColumnName="Count" />
+            <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+            <ScalarProperty Name="LastOrderTime" ColumnName="LastOrderTime" />
+            <ScalarProperty Name="ActivedDegree" ColumnName="ActivedDegree" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Employee"><EntityTypeMapping TypeName="donataModel.Employee"><MappingFragment StoreEntitySet="Employee">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Number" ColumnName="Number" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="BankCard" ColumnName="BankCard" />
+            <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+            <ScalarProperty Name="Post" ColumnName="Post" />
+            <ScalarProperty Name="Salary" ColumnName="Salary" />
+            <ScalarProperty Name="Node" ColumnName="Node" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="Actived" ColumnName="Actived" />
+            <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails"><EntityTypeMapping TypeName="donataModel.OrderDetails"><MappingFragment StoreEntitySet="OrderDetails">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Price" ColumnName="Price" />
+            <ScalarProperty Name="Count" ColumnName="Count" />
+            <ScalarProperty Name="Remark" ColumnName="Remark" />
+            <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+            <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+            <ScalarProperty Name="Index" ColumnName="Index" />
+            <ScalarProperty Name="ParentIndex" ColumnName="ParentIndex" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Store">
+            <EntityTypeMapping TypeName="donataModel.Store">
+              <MappingFragment StoreEntitySet="Store">
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="StoreType" ColumnName="StoreType" />
+                <ScalarProperty Name="Node" ColumnName="Node" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="donataModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="LastAccess" ColumnName="LastAccess" />
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+                <ScalarProperty Name="MaterialType" ColumnName="MaterialType" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Standards" ColumnName="Standards" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commands">
+            <EntityTypeMapping TypeName="donataModel.Commands">
+              <MappingFragment StoreEntitySet="Commands">
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Node" ColumnName="Node" />
+                <ScalarProperty Name="Command" ColumnName="Command" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StoreDetails">
+            <EntityTypeMapping TypeName="donataModel.StoreDetails">
+              <MappingFragment StoreEntitySet="StoreDetails">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ModelDonata">
+        <EntityTypeShape EntityType="donataModel.Addresses" Width="1.5" PointX="0.75" PointY="0.75" Height="2.3520719401041665" IsExpanded="true" />
+        <EntityTypeShape EntityType="donataModel.Clocking" Width="1.5" PointX="2.75" PointY="3.75" Height="1.779012858072917" IsExpanded="true" />
+        <EntityTypeShape EntityType="donataModel.Customers" Width="1.5" PointX="4.75" PointY="0.75" Height="2.7341113281249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="donataModel.Employee" Width="1.5" PointX="6.875" PointY="1.875" Height="3.3071704101562496" IsExpanded="true" />
+        <EntityTypeShape EntityType="donataModel.OrderDetails" Width="1.5" PointX="8.75" PointY="0.75" Height="2.7341113281249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="donataModel.Store" Width="1.5" PointX="11.125" PointY="10.75" Height="2.3520719401041674" />
+        <EntityTypeShape EntityType="donataModel.Products" Width="1.5" PointX="4.625" PointY="8.125" Height="2.7341113281250031" />
+        <EntityTypeShape EntityType="donataModel.Commands" Width="1.5" PointX="8.625" PointY="11" Height="1.9700325520833388" />
+        <EntityTypeShape EntityType="donataModel.StoreDetails" Width="1.5" PointX="6.875" PointY="8" Height="1.9700325520833388" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

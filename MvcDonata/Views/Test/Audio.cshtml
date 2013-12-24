@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Audio";
+}
+
+<h2>Audio</h2>
+
+<audio id="ring" src="@Url.Content("~/content/ring.mp3")">
+</audio>
+
+<input type="button" value="播放" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("input").click(function () {
+            $("#ring")[0].play();
+        }
+        );
+    }
+);
+</script>

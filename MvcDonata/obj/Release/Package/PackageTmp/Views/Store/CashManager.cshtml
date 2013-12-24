@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "CashManager";
+}
+
+<style type="text/css">
+fieldset span 
+{
+     color:White;
+     margin:1em;
+}
+fieldset legend,div.addProduct,div.order
+{
+    color:White;
+    margin:1em;
+}
+fieldset
+{
+    margin:1em 0 0 0;
+}
+fieldset div
+{
+    padding:5px;
+}
+</style>
+
+<h2>现金管理</h2>
+
+<div>
+     @if (MvcDonata.DonataMembership.GetUserNode(User.Identity.Name)=="总库房")
+    {
+        <span style="color:White;">选择分店:</span>
+        <select class="cashNodes"></select>
+    }
+    <span>请选择日期:</span><input type="text" id="selectedDate" readonly="readonly"/>
+    <input type="button" id="refresh" value="刷新" />
+</div>
+
+<table class="tableForCashesList" style="border-width:0px;">
+        <tr>
+            <td class="left" style="border-width:0px;">
+                <div class="cashesList">
+                    <table id="cashes" style="width:100%;color:White;">
+                        <tr style="color:White;background-color:#1C5E55;font-weight:bold;" class="header">
+                                    <td datafield="Remark">项目</td>
+                                    <td datafield="Employee">操作员</td>
+                                    <td datafield="Node">分店</td>
+                                    <td datafield="Amount">金额</td>
+                                    <td datafield="CashType">类型</td>
+                                    <td datafield="Time">时间</td>
+                                    <td>操作</td>
+                        </tr>
+                        <tr class="template" style="display:none">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <input type="button" value="删除" class="del" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+<fieldset>
+<legend>添加新的账目</legend>
+<div><span>项目</span><input type="text" id="Remark" /></div>
+<div><span>金额</span><input type="text" id="Amount" /></div>
+<div><span>类型</span>
+<select id="CashType" style="margin:0 0 0 -4px;" >
+</select>
+</div>
+<div><input type="button" id="addNewProduct" value="保存" /></div>
+</fieldset>

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MvcDonata.Modal" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="donataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clockings" EntityType="MvcDonata.Modal.Clockings" />
+    <EntitySet Name="Customers" EntityType="MvcDonata.Modal.Customers" />
+    <EntitySet Name="Details" EntityType="MvcDonata.Modal.Details" />
+    <EntitySet Name="DineOrders" EntityType="MvcDonata.Modal.DineOrders" />
+    <EntitySet Name="PhoneOrders" EntityType="MvcDonata.Modal.PhoneOrders" />
+    <EntitySet Name="Employees" EntityType="MvcDonata.Modal.Employees" />
+  </EntityContainer>
+  <EntityType Name="Clockings">
+    <Key>
+      <PropertyRef Name="ClockID" />
+    </Key>
+    <Property Name="ClockID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" />
+    <Property Name="Node" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Details">
+    <Key>
+      <PropertyRef Name="DetailID" />
+    </Key>
+    <Property Name="DetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="DishName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="Remark" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="OrderType" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DineOrders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TableNumber" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Node" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" />
+    <Property Name="Total" Type="Double" Nullable="false" />
+    <Property Name="Discount" Type="Double" Nullable="false" />
+    <Property Name="Remark" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="CustomerCount" Type="Int32" Nullable="false" />
+    <Property Name="BarCode" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Type="Int32" Name="EmployeeID" />
+  </EntityType>
+  <EntityType Name="PhoneOrders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="Remark" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Total" Type="Double" Nullable="false" />
+    <Property Name="Discount" Type="Double" Nullable="false" />
+    <Property Name="CustomerCount" Type="Int32" Nullable="false" />
+    <Property Name="BarCode" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" />
+    <Property Name="Node" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Received" Type="Boolean" />
+    <Property Name="EmployeeID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="EntryDate" Nullable="false" />
+    <Property Type="String" Name="Post" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Salary" Nullable="false" />
+    <Property Type="Int32" Name="Salary1" Nullable="false" />
+    <Property Type="Int32" Name="Salary2" Nullable="false" />
+    <Property Type="String" Name="CardNumber" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Node" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="Actived" Nullable="false" />
+  </EntityType>
+</Schema>

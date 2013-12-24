@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8723E8E7-D5A6-4036-B763-214AE94FB4CA}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MvcDonata</RootNamespace>
+    <AssemblyName>MvcDonata</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.1.0.0-alpha2\lib\net40\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Hosting.AspNet">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Hosting.AspNet.1.0.0-alpha2\lib\net40\Microsoft.AspNet.SignalR.Hosting.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Hosting.Common">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Hosting.Common.1.0.0-alpha2\lib\net40\Microsoft.AspNet.SignalR.Hosting.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Models">
+      <HintPath>..\..\Models\Models\bin\Release\Models.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>C:\Program Files (x86)\MongoDB\CSharpDriver 1.6\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>C:\Program Files (x86)\MongoDB\CSharpDriver 1.6\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Core, Version=1.0.11220.104, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.WebPages.Administration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Tools">
+      <HintPath>..\..\Tools\Tools\bin\Release\Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RegisterHubs.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdGearController.cs" />
+    <Compile Include="Controllers\CusotmersController.cs" />
+    <Compile Include="Controllers\DineOrderController.cs" />
+    <Compile Include="Controllers\DishesController.cs" />
+    <Compile Include="Controllers\DNSController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MongoDBController.cs" />
+    <Compile Include="Controllers\PhoneOrderController.cs" />
+    <Compile Include="Controllers\PrintController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\RingController.cs" />
+    <Compile Include="Controllers\SQLController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\ViewOrdersController.cs" />
+    <Compile Include="Controllers\WebOrderController.cs" />
+    <Compile Include="Controllers\WXController.cs" />
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DonataMembership.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BusinessObject.cs" />
+    <Compile Include="Models\DishesBusinessObject.cs" />
+    <Compile Include="Models\Five.cs" />
+    <Compile Include="Models\ModelDonata.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDonata.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PadBusiness.cs" />
+    <Compile Include="Models\StoreBusinessObject.cs" />
+    <Compile Include="Models\StoreBusinessObjectForMongo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\WebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\donata.mdf" />
+    <Content Include="App_Data\donata_log.ldf">
+      <DependentUpon>donata.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\Images\add.jpg" />
+    <Content Include="Content\Images\back.jpg" />
+    <Content Include="Content\Images\BBQ鸡肉.jpg" />
+    <Content Include="Content\Images\coverbg.jpg" />
+    <Content Include="Content\Images\del.jpg" />
+    <Content Include="Content\Images\loading.gif" />
+    <Content Include="Content\Images\logo.jpg" />
+    <Content Include="Content\Images\remark.jpg" />
+    <Content Include="Content\Images\sub.jpg" />
+    <Content Include="Content\Images\WebOrder\Banner.png" />
+    <Content Include="Content\Images\WebOrder\元素 %2810%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %2811%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %2812%29.png" />
+    <Content Include="Content\Images\WebOrder\dot.png" />
+    <Content Include="Content\Images\WebOrder\元素 %2814%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %2815%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %2816%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %2817%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %2818%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %2819%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %282%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %2820%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %2821%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %2822%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %2823%29.png" />
+    <Content Include="Content\Images\WebOrder\DonataTitle.png" />
+    <Content Include="Content\Images\WebOrder\ButtonBack.png" />
+    <Content Include="Content\Images\WebOrder\DonataLogo.png" />
+    <Content Include="Content\Images\WebOrder\元素 %2827%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %2828%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %2829%29.png" />
+    <Content Include="Content\Images\WebOrder\chart.png" />
+    <Content Include="Content\Images\WebOrder\元素 %284%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %285%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %286%29.png" />
+    <Content Include="Content\Images\WebOrder\pizza.png" />
+    <Content Include="Content\Images\WebOrder\元素 %288%29.png" />
+    <Content Include="Content\Images\WebOrder\元素 %289%29.png" />
+    <Content Include="Content\Images\三明治12.jpg" />
+    <Content Include="Content\Images\三明治6.jpg" />
+    <Content Include="Content\Images\三球.jpg" />
+    <Content Include="Content\Images\主食.jpg" />
+    <Content Include="Content\Images\什锦薯园.jpg" />
+    <Content Include="Content\Images\加米饭.jpg" />
+    <Content Include="Content\Images\单球.jpg" />
+    <Content Include="Content\Images\卡布奇诺.jpg" />
+    <Content Include="Content\Images\双球.jpg" />
+    <Content Include="Content\Images\台式卤肉干拌意面.jpg" />
+    <Content Include="Content\Images\听芬达.jpg" />
+    <Content Include="Content\Images\咖啡.jpg" />
+    <Content Include="Content\Images\墨西哥风味牛肉意面.jpg" />
+    <Content Include="Content\Images\夏威夷风光.jpg" />
+    <Content Include="Content\Images\奥尔良对翅.jpg" />
+    <Content Include="Content\Images\奥尔良烤翅.jpg" />
+    <Content Include="Content\Images\奶油鸡茸蘑菇汤.jpg" />
+    <Content Include="Content\Images\奶酪薯棒.jpg" />
+    <Content Include="Content\Images\奶香玉米沙拉.jpg" />
+    <Content Include="Content\Images\巧克力奶昔.jpg" />
+    <Content Include="Content\Images\德式烤猪肘.jpg" />
+    <Content Include="Content\Images\意大利蓝山咖啡.jpg" />
+    <Content Include="Content\Images\意式传统肉酱面.jpg" />
+    <Content Include="Content\Images\意式焗烤牛肉丸.jpg" />
+    <Content Include="Content\Images\拿铁.jpg" />
+    <Content Include="Content\Images\挪威海趣.jpg" />
+    <Content Include="Content\Images\日式照烧鸡腿饭.jpg" />
+    <Content Include="Content\Images\柠檬茶.jpg" />
+    <Content Include="Content\Images\梅菜扣肉饭.jpg" />
+    <Content Include="Content\Images\欢聚大拼盘.jpg" />
+    <Content Include="Content\Images\水果大比拼.jpg" />
+    <Content Include="Content\Images\水果沙拉.jpg" />
+    <Content Include="Content\Images\沙拉.jpg" />
+    <Content Include="Content\Images\泡菜肥牛.jpg" />
+    <Content Include="Content\Images\海鲜什锦拼.jpg" />
+    <Content Include="Content\Images\牛奶.jpg" />
+    <Content Include="Content\Images\牛排.jpg" />
+    <Content Include="Content\Images\玛格丽特.jpg" />
+    <Content Include="Content\Images\珠圆玉润.jpg" />
+    <Content Include="Content\Images\甜点.jpg" />
+    <Content Include="Content\Images\比萨.JPG" />
+    <Content Include="Content\Images\田园风光.jpg" />
+    <Content Include="Content\Images\盐酥鸡块.jpg" />
+    <Content Include="Content\Images\碳烧猪扒.jpg" />
+    <Content Include="Content\Images\红枣桂圆豆沙.jpg" />
+    <Content Include="Content\Images\红酒煨培根焗饭.jpg" />
+    <Content Include="Content\Images\罗宋汤.jpg" />
+    <Content Include="Content\Images\美式烤薯船.jpg" />
+    <Content Include="Content\Images\美式风情.jpg" />
+    <Content Include="Content\Images\芝士培根焗薯蓉.jpg" />
+    <Content Include="Content\Images\草莓奶昔.jpg" />
+    <Content Include="Content\Images\荷塘月色.jpg" />
+    <Content Include="Content\Images\蓝莓冰沙.jpg" />
+    <Content Include="Content\Images\蔬菜沙拉.jpg" />
+    <Content Include="Content\Images\薯条.jpg" />
+    <Content Include="Content\Images\薯格.jpg" />
+    <Content Include="Content\Images\超级至尊.jpg" />
+    <Content Include="Content\Images\金枪鱼沙拉.jpg" />
+    <Content Include="Content\Images\金枪鱼特选.jpg" />
+    <Content Include="Content\Images\青翠三文鱼.jpg" />
+    <Content Include="Content\Images\饮品.JPG" />
+    <Content Include="Content\Images\小吃.jpg" />
+    <Content Include="Content\Images\香烤牛肉.jpg" />
+    <Content Include="Content\Images\香草奶昔.jpg" />
+    <Content Include="Content\Images\香蒜面包.jpg" />
+    <Content Include="Content\Images\香蕉船.jpg" />
+    <Content Include="Content\Images\鱼排.jpg" />
+    <Content Include="Content\Images\鸡蛋沙拉.jpg" />
+    <Content Include="Content\Images\黄油薯泥丸.jpg" />
+    <Content Include="Content\Images\黑椒牛柳焗面.jpg" />
+    <Content Include="Content\Images\黑椒牛柳焗饭.jpg" />
+    <Content Include="Content\phoneorder.css" />
+    <Content Include="Content\ring.mp3" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="README.jQuery.vsdoc.txt" />
+    <Content Include="Scripts\BarPad.js" />
+    <Content Include="Scripts\chart.js" />
+    <Content Include="Scripts\cluetip\images\arrowdown.gif" />
+    <Content Include="Scripts\cluetip\images\arrowleft.gif" />
+    <Content Include="Scripts\cluetip\images\arrowright.gif" />
+    <Content Include="Scripts\cluetip\images\arrowup.gif" />
+    <Content Include="Scripts\cluetip\images\bl.gif" />
+    <Content Include="Scripts\cluetip\images\bl.png" />
+    <Content Include="Scripts\cluetip\images\br.gif" />
+    <Content Include="Scripts\cluetip\images\br.png" />
+    <Content Include="Scripts\cluetip\images\darrowdown.gif" />
+    <Content Include="Scripts\cluetip\images\darrowleft.gif" />
+    <Content Include="Scripts\cluetip\images\darrowright.gif" />
+    <Content Include="Scripts\cluetip\images\darrowup.gif" />
+    <Content Include="Scripts\cluetip\images\itunes.png" />
+    <Content Include="Scripts\cluetip\images\rarrowdown.gif" />
+    <Content Include="Scripts\cluetip\images\rarrowleft.gif" />
+    <Content Include="Scripts\cluetip\images\rarrowright.gif" />
+    <Content Include="Scripts\cluetip\images\rarrowup.gif" />
+    <Content Include="Scripts\cluetip\images\tl.gif" />
+    <Content Include="Scripts\cluetip\images\tl.png" />
+    <Content Include="Scripts\cluetip\images\tr.gif" />
+    <Content Include="Scripts\cluetip\images\tr.png" />
+    <Content Include="Scripts\cluetip\images\wait.gif" />
+    <Content Include="Scripts\cluetip\jquery.cluetip.css" />
+    <Content Include="Scripts\cluetip\jquery.cluetip.min.js" />
+    <Content Include="Scripts\cluetip\jquery.hoverIntent.js" />
+    <Content Include="Scripts\cookie.js" />
+    <Content Include="Scripts\CreateNewPhoneOrder.js" />
+    <Content Include="Scripts\createorder.js" />
+    <Content Include="Scripts\createstockin.js" />
+    <Content Include="Scripts\dateformat.js" />
+    <Content Include="Scripts\DateTime.js" />
+    <Content Include="Scripts\dineorder.js" />
+    <Content Include="Scripts\dishes.js" />
+    <Content Include="Scripts\EastMarkOrder.js" />
+    <Content Include="Scripts\eastmarkOrderMobile.js" />
+    <Content Include="Scripts\EditCustomer.js" />
+    <Content Include="Scripts\five.js" />
+    <Content Include="Scripts\highcharts.js" />
+    <Content Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.4.js" />
+    <Content Include="Scripts\jquery-1.6.4.min.js" />
+    <Content Include="Scripts\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.18.js" />
+    <Content Include="Scripts\jquery-ui-1.8.18.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.19.min.js" />
+    <Content Include="Scripts\jquery.datagrid.js" />
+    <Content Include="Scripts\jquery.enable.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.localscroll.js" />
+    <Content Include="Scripts\jquery.mobile\images\ajax-loader.gif" />
+    <Content Include="Scripts\jquery.mobile\images\icons-18-black.png" />
+    <Content Include="Scripts\jquery.mobile\images\icons-18-white.png" />
+    <Content Include="Scripts\jquery.mobile\images\icons-36-black.png" />
+    <Content Include="Scripts\jquery.mobile\images\icons-36-white.png" />
+    <Content Include="Scripts\jquery.mobile\jquery.mobile-1.2.0.css" />
+    <Content Include="Scripts\jquery.mobile\jquery.mobile-1.2.0.js" />
+    <Content Include="Scripts\jquery.mobile\jquery.mobile-1.2.0.min.css" />
+    <Content Include="Scripts\jquery.mobile\jquery.mobile-1.2.0.min.js" />
+    <Content Include="Scripts\jquery.mobile\jquery.mobile.structure-1.2.0.css" />
+    <Content Include="Scripts\jquery.mobile\jquery.mobile.structure-1.2.0.min.css" />
+    <Content Include="Scripts\jquery.mobile\jquery.mobile.theme-1.2.0.css" />
+    <Content Include="Scripts\jquery.mobile\jquery.mobile.theme-1.2.0.min.css" />
+    <Content Include="Scripts\jquery.newphoneorder.js" />
+    <Content Include="Scripts\jquery.scrollTo.js" />
+    <Content Include="Scripts\jquery.signalR-1.0.0-alpha2.js" />
+    <Content Include="Scripts\jquery.signalR-1.0.0-alpha2.min.js" />
+    <Content Include="Scripts\jquery.template.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\JSLINQ.js" />
+    <Content Include="Scripts\md5-min.js" />
+    <Content Include="Scripts\Moduls\modulCreateOrder.js" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\ordersList.js" />
+    <Content Include="Scripts\phoneorder.js" />
+    <Content Include="Scripts\qnvfunc.js" />
+    <Content Include="Scripts\qnviccub.js" />
+    <Content Include="Scripts\reports.js" />
+    <Content Include="Scripts\stockinList.js" />
+    <Content Include="Scripts\stockout.js" />
+    <Content Include="Scripts\tools.js" />
+    <Content Include="Scripts\ViewStock.js" />
+    <Content Include="Scripts\watchphone.js" />
+    <None Include="Service References\WebService\linkWS.disco" />
+    <None Include="Service References\WebService\configuration91.svcinfo" />
+    <None Include="Service References\WebService\configuration.svcinfo" />
+    <None Include="Service References\WebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <None Include="Service References\WebService\linkWS.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DNS\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\EditEmployee.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DNS\list.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\ListEmployees.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Dishes\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\AddOrder.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Dishes\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Dishes\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Dishes\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Test\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Customers\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Customers\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Customers\ListAddresses.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Customers\Page.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Customers\Address.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PhoneOrder\NewPhoneOrder.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PhoneOrder\Dish.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AdGear\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DineOrder\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PhoneOrder\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ViewOrders\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PhoneOrder\Test.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\ModelDonata.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelDonata.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PhoneOrder\WatchPhone.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Store\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Store\Order.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Store\StockOut.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Store\StockIn.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\CreateOrder.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\LoadingDialog.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Store\EastMarkOrder.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Store\ViewStock.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Print\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DineOrder\BarPad.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\File\Test.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SQL\UpdateOrderTotal.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Test\Audio.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Test\Command.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Test\Canvas.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\WebOrder\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reports\Test.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Store\CashManager.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\WebOrder\WebOrderHeader.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\WebOrder\WebOrderFooter.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WebService\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>34278</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

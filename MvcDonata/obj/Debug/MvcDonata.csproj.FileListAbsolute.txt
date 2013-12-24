@@ -1,0 +1,148 @@
+i:\360data\重要数据\我的文档\visual studio 2010\Projects\MvcDonata\MvcDonata\bin\MvcDonata.dll
+i:\360data\重要数据\我的文档\visual studio 2010\Projects\MvcDonata\MvcDonata\bin\MvcDonata.pdb
+i:\360data\重要数据\我的文档\visual studio 2010\Projects\MvcDonata\MvcDonata\bin\EntityFramework.dll
+i:\360data\重要数据\我的文档\visual studio 2010\Projects\MvcDonata\MvcDonata\bin\EntityFramework.xml
+i:\360data\重要数据\我的文档\visual studio 2010\Projects\MvcDonata\MvcDonata\obj\Debug\ResolveAssemblyReference.cache
+i:\360data\重要数据\我的文档\visual studio 2010\Projects\MvcDonata\MvcDonata\obj\Debug\MvcDonata.dll
+i:\360data\重要数据\我的文档\visual studio 2010\Projects\MvcDonata\MvcDonata\obj\Debug\MvcDonata.pdb
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.ComponentModel.DataAnnotations.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.Abstractions.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.Mvc.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.Routing.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.Mvc.xml
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.Helpers.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.Helpers.xml
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.Helpers.resources.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.xml
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.WebPages.resources.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\Microsoft.Web.Infrastructure.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\Microsoft.Web.Infrastructure.xml
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\zh-Hans\Microsoft.Web.Infrastructure.resources.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.Razor.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.Razor.xml
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.Razor.resources.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.Razor.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.Razor.xml
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.Administration.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.Deployment.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.Deployment.xml
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.WebPages.Administration.resources.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\NuGet.Core.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\zh-Hans\NuGet.Core.resources.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\Tools.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\Tools.pdb
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\Models.dll
+I:\360data\重要数据\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\Models.pdb
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\obj\Debug\MvcDonata.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\MvcDonata.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\MvcDonata.pdb
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\EntityFramework.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\Microsoft.Web.Infrastructure.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\Models.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\NuGet.Core.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.ComponentModel.DataAnnotations.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.Abstractions.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.Helpers.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.Mvc.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.Razor.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.Routing.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.Administration.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.Deployment.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.Razor.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\Tools.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\EntityFramework.xml
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\Models.pdb
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\Tools.pdb
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\zh-Hans\NuGet.Core.resources.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.Mvc.resources.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.Razor.resources.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.WebPages.resources.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.Helpers.resources.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.WebPages.Administration.resources.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\obj\Debug\MvcDonata.pdb
+E:\MvcDonata\MvcDonata\bin\MvcDonata.dll
+E:\MvcDonata\MvcDonata\bin\MvcDonata.pdb
+E:\MvcDonata\MvcDonata\bin\EntityFramework.dll
+E:\MvcDonata\MvcDonata\bin\Microsoft.Web.Infrastructure.dll
+E:\MvcDonata\MvcDonata\bin\Models.dll
+E:\MvcDonata\MvcDonata\bin\NuGet.Core.dll
+E:\MvcDonata\MvcDonata\bin\System.ComponentModel.DataAnnotations.dll
+E:\MvcDonata\MvcDonata\bin\System.Web.Abstractions.dll
+E:\MvcDonata\MvcDonata\bin\System.Web.Helpers.dll
+E:\MvcDonata\MvcDonata\bin\System.Web.Mvc.dll
+E:\MvcDonata\MvcDonata\bin\System.Web.Razor.dll
+E:\MvcDonata\MvcDonata\bin\System.Web.Routing.dll
+E:\MvcDonata\MvcDonata\bin\System.Web.WebPages.Administration.dll
+E:\MvcDonata\MvcDonata\bin\System.Web.WebPages.Deployment.dll
+E:\MvcDonata\MvcDonata\bin\System.Web.WebPages.dll
+E:\MvcDonata\MvcDonata\bin\System.Web.WebPages.Razor.dll
+E:\MvcDonata\MvcDonata\bin\Tools.dll
+E:\MvcDonata\MvcDonata\bin\EntityFramework.xml
+E:\MvcDonata\MvcDonata\bin\Microsoft.Web.Infrastructure.xml
+E:\MvcDonata\MvcDonata\bin\Models.pdb
+E:\MvcDonata\MvcDonata\bin\System.Web.Mvc.xml
+E:\MvcDonata\MvcDonata\bin\System.Web.Razor.xml
+E:\MvcDonata\MvcDonata\bin\System.Web.WebPages.xml
+E:\MvcDonata\MvcDonata\bin\System.Web.Helpers.xml
+E:\MvcDonata\MvcDonata\bin\System.Web.WebPages.Deployment.xml
+E:\MvcDonata\MvcDonata\bin\System.Web.WebPages.Razor.xml
+E:\MvcDonata\MvcDonata\bin\Tools.pdb
+E:\MvcDonata\MvcDonata\bin\zh-Hans\Microsoft.Web.Infrastructure.resources.dll
+E:\MvcDonata\MvcDonata\bin\zh-Hans\NuGet.Core.resources.dll
+E:\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.Mvc.resources.dll
+E:\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.Razor.resources.dll
+E:\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.WebPages.resources.dll
+E:\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.Helpers.resources.dll
+E:\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.WebPages.Administration.resources.dll
+E:\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+E:\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+E:\MvcDonata\MvcDonata\obj\Debug\ResolveAssemblyReference.cache
+E:\MvcDonata\MvcDonata\obj\Debug\MvcDonata.dll
+E:\MvcDonata\MvcDonata\obj\Debug\MvcDonata.pdb
+E:\Projects\MvcDonata\MvcDonata\bin\MvcDonata.dll
+E:\Projects\MvcDonata\MvcDonata\bin\MvcDonata.pdb
+E:\Projects\MvcDonata\MvcDonata\bin\EntityFramework.dll
+E:\Projects\MvcDonata\MvcDonata\bin\Microsoft.Web.Infrastructure.dll
+E:\Projects\MvcDonata\MvcDonata\bin\Models.dll
+E:\Projects\MvcDonata\MvcDonata\bin\NuGet.Core.dll
+E:\Projects\MvcDonata\MvcDonata\bin\System.ComponentModel.DataAnnotations.dll
+E:\Projects\MvcDonata\MvcDonata\bin\System.Web.Abstractions.dll
+E:\Projects\MvcDonata\MvcDonata\bin\System.Web.Helpers.dll
+E:\Projects\MvcDonata\MvcDonata\bin\System.Web.Mvc.dll
+E:\Projects\MvcDonata\MvcDonata\bin\System.Web.Razor.dll
+E:\Projects\MvcDonata\MvcDonata\bin\System.Web.Routing.dll
+E:\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.Administration.dll
+E:\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.Deployment.dll
+E:\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.dll
+E:\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.Razor.dll
+E:\Projects\MvcDonata\MvcDonata\bin\Tools.dll
+E:\Projects\MvcDonata\MvcDonata\bin\EntityFramework.xml
+E:\Projects\MvcDonata\MvcDonata\bin\Microsoft.Web.Infrastructure.xml
+E:\Projects\MvcDonata\MvcDonata\bin\Models.pdb
+E:\Projects\MvcDonata\MvcDonata\bin\System.Web.Mvc.xml
+E:\Projects\MvcDonata\MvcDonata\bin\System.Web.Razor.xml
+E:\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.xml
+E:\Projects\MvcDonata\MvcDonata\bin\System.Web.Helpers.xml
+E:\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.Deployment.xml
+E:\Projects\MvcDonata\MvcDonata\bin\System.Web.WebPages.Razor.xml
+E:\Projects\MvcDonata\MvcDonata\bin\Tools.pdb
+E:\Projects\MvcDonata\MvcDonata\bin\zh-Hans\Microsoft.Web.Infrastructure.resources.dll
+E:\Projects\MvcDonata\MvcDonata\bin\zh-Hans\NuGet.Core.resources.dll
+E:\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.Mvc.resources.dll
+E:\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.Razor.resources.dll
+E:\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.WebPages.resources.dll
+E:\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.Helpers.resources.dll
+E:\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.WebPages.Administration.resources.dll
+E:\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+E:\Projects\MvcDonata\MvcDonata\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+E:\Projects\MvcDonata\MvcDonata\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\MvcDonata\MvcDonata\obj\Debug\MvcDonata.dll
+E:\Projects\MvcDonata\MvcDonata\obj\Debug\MvcDonata.pdb
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\obj\Debug\MvcDonata.csprojResolveAssemblyReference.cache
+F:\我的文档\Visual Studio 2010\Projects\MvcDonata\MvcDonata\bin\MvcDonata.dll.config

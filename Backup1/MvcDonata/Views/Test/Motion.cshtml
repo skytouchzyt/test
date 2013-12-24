@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Motion";
+}
+
+<h2>Motion</h2>
+
+<style type="text/css">
+    .dishes {
+        list-style-type:none;
+        float:left;
+        padding:6px;
+        background-color:aquamarine;
+    }
+    .main  {
+        list-style-type:none;
+        display:inline;
+        float:left;
+        width:100px;
+        height:100px;
+        padding:3px;
+        margin:0px;
+        background-color:azure;
+    }
+
+    .alldish {
+        display:inline;
+        float:left;
+        padding:0px;
+        background-color:blue;
+        outline:solid;
+        outline-color:aquamarine;
+    }
+
+    .bigdish {
+        width: 90px;
+        height: 90px;
+    }
+    .middledish {
+        width:90px;
+        height:45px;
+    }
+    .smalldish {
+        width: 45px;
+        height: 45px;
+    }
+
+</style>
+
+<script type="text/javascript">
+    $(document).ready(
+        function () {
+            var dishes = [
+                {
+                    name: "超级至尊12",
+                    size: "big",
+                },
+                {
+                    name: "金9",
+                    size: "middle"
+                },
+                {
+                    name: "奶6",
+                    size: "small"
+                },
+                {
+                    name: "奶6",
+                    size: "small"
+                }
+            ];
+            $("<div/>")
+                .appendTo($("li.main:eq(0)"))
+                .html(dishes[0].name)
+                .addClass("alldish")
+                .addClass("bigdish");
+
+            $("<div/>")
+                .appendTo($("li.main:eq(1)"))
+                .html(dishes[1].name)
+                .addClass("alldish")
+                .addClass("middledish");
+
+            $("<div/>")
+                .appendTo($("li.main:eq(1)"))
+                .html(dishes[2].name)
+                .addClass("alldish")
+                .addClass("smalldish");
+
+            $("<div/>")
+                .appendTo($("li.main:eq(1)"))
+                .html(dishes[3].name)
+                .addClass("alldish")
+                .addClass("smalldish");
+
+
+
+        }
+        );
+</script>
+
+<ul class="dishes">
+    @for (var i = 0; i < 30; i++)
+    {
+        <li class="main">
+        </li>
+    }
+</ul>

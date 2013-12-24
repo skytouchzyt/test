@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Augular";
+}
+<script src="../../Scripts/angular.min.js"></script>
+
+@*<div ng-controller="CartController">
+    <h1>Your Order</h1>
+    <div ng-repeat="item in items">
+        <span>{{item.title}}</span>
+        <input ng-model="item.quantity" />
+        <span>{{item.price|currency}}</span>
+        <span>{{item.price*item.quantity|currency}}</span>
+        <button ng-click="remove($index)">Remove</button>
+    </div>
+</div>
+
+<script>
+    function CartController($scope) {
+        $scope.items=[
+            {title:"Paint pots",quantity:8,price:3.95},
+            {title:"Polka dots",quantity:17,price:12.95},
+            {title:"Pebbles",quantity:5,price:6.95}
+        ];
+        $scope.remove = function (index) {
+            $scope.items.splice(index, 1);
+        }
+    }
+</script>*@
+@*<div ng-app="myApp">
+    <div ng-controller="TextController">
+        <p>{{someText.message}}</p>
+    </div>
+    <script>
+        var myAppModule = angular.module('myApp', []);
+        myAppModule.controller('TextController',
+            function ($scope) {
+                var someText = {};
+                someText.message = 'You have started your journey.';
+                $scope.someText = someText;
+            });
+    </script>
+</div>*@
+<div ng-app>
+    <div ng-controller='DeathrayMenuController'>
+  <button ng-click='toggleMenu()'>Toggle Menu</button>
+  <ul ng-show='menuState.show'>
+    <li ng-click='stun()'>Stun</li>
+    <li ng-click='disintegrate()'>Disintegrate</li>
+    <li ng-click='erase()'>Erase from history</li>
+  </ul>
+<div/>
+<script>
+    function DeathrayMenuController($scope) {
+        var temp = {show:false};
+        $scope.menuState = temp;
+        $scope.toggleMenu = function () {
+            $scope.menuState.show = !$scope.menuState.show;
+        };
+        // death ray functions left as exercise to reader
+    }
+</script>
+</div>
+
+
+
+

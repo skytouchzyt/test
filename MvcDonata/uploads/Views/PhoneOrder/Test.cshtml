@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+@using Tools
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Test</title>
+</head>
+<body>
+<style type="text/css">
+ul
+{
+
+    list-style:none;
+}
+ul li
+{
+    height:20px;
+    list-style-type:none;
+    float:left;
+}
+</style>
+<ul id="test">
+  <li>咖啡</li>
+  <li>茶</li>
+  <li>牛奶</li>
+</ul>
+<ul id="test">
+  <li>咖啡</li>
+  <li>茶</li>
+  <li>牛奶</li>
+</ul>
+
+@DateTime.Parse("2012-9-9 16:35:24").SerializeToJson(false)
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "员工列表";
+}
+
+<h2>员工列表</h2>
+<script src="../../Scripts/angular.min.js"></script>
+
+<div>
+    <span>选择分店:</span><select class="node"></select>
+    <input type="button" value="添加" id="add" />
+    <input type="button" value="刷新" id="refresh" />
+    <input type="checkbox" id="displayAll" /><span>显示非激活员工</span>
+</div>
+<table id="employees" style="width:100%;" ng-controller="EmployeesListCtrl">
+<tr style="color:White;background-color:#1C5E55;font-weight:bold;" class="header">
+		<td>姓名</td>
+        <td>编号</td>
+        <td>分店</td>
+        <td>电话</td>
+        <td>银行卡</td>
+        <td>入职日期</td>
+        <td>职位</td>
+        <td>薪资</td>
+        <td>图片</td>
+        <td>身份证号</td>
+        <td>最后登录时间</td>
+        <td>操作</td>
+</tr>
+<tr  ng-repeat="e in Employees">
+    <td style="text-align:left;">{{e.Name}}</td>
+    <td style="text-align:left;">{{e.Number}}</td>
+    <td style="text-align:left;">{{e.Node}}</td>
+    <td style="text-align:left;">{{e.Phone}}</td>
+    <td style="text-align:right">{{e.BankCard}}</td>
+    <td style="width:50px;text-align:center;">{{e.EntryDate}}</td>
+    <td style="width:70px;text-align:right;">{{e.Post}}</td>
+    <td style="width:100px;text-align:center;">{{e.Salary}}</td>
+    <td style="width:100px;text-align:center;"></td>
+    <td style="width:70px;text-align:center;">{{e.ID}}</td>
+    <td style="text-align:left;">{{e.LastLoginTime}}</td>
+    <td>
+        <input type="button" command="编辑" value="修改" ng-click="test(e)" />
+    </td>
+</tr>
+</table>
+
+<script type="text/javascript">
+    function EmployeesListCtrl($scope, $http) {
+        $scope.test = function (e) {
+            alert(e.Name);
+        }
+        $.getJSON("/account/getemployees", function (result) {
+            $scope.$apply(function () {
+                $scope.Employees = result;
+            }
+            );
+        }
+        );
+    }
+</script>

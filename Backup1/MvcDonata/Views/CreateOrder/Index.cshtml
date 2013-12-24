@@ -1,0 +1,84 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>创建新订单</title>
+    <style type="text/css">
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+        #main {
+            width: auto;
+            min-height:1000px;
+            padding: 10px;
+            border: solid 5px red;
+            border-radius: 10px 10px 10px 10px;
+        }
+        ul#buttons {
+            width:auto;
+            text-align:right;
+            margin:10px;
+        }
+        ul#buttons li,ul#logo li {
+            list-style-type: none;
+            display: inline;
+        }
+
+            ul#logo img {
+                width: 100px;
+                height: 64px;
+            }
+        ul#logo {
+            text-align: center;
+            width:auto;
+        }
+
+        li.dish div {
+            text-align: center;
+            vertical-align: central;
+        }
+    </style>
+
+<script type="text/html" id="template-dish">
+    <![CDATA[
+    <li class="dish" >                          
+        <div>
+            <span class="dishName"><%=this.DishName%></span>
+        </div>
+        <div>
+            <span class="price"><%=this.Price%></span>
+        </div>
+    </li>
+    ]]>
+</script>
+
+<script type="text/html" id="template-class">
+    <![CDATA[
+    <ul class="class"></ul>
+    ]]>
+</script>
+
+
+
+
+</head>
+<body>
+    <ul id="logo">
+        <li><span style="font-size:xx-large;">多纳达比萨</span></li>
+        <li><img src="/Content/Images/logo.jpg" alt="多纳达" /></li>
+    </ul>
+    <ul id="buttons">
+        
+        <li><button>结账</button></li>
+        
+    </ul>
+    <div id="main">
+
+    </div>
+</body>
+</html>

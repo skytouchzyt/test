@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "多纳达一周运营统计";
+}
+
+<h2>多纳达一周运营统计</h2>
+<h3 id="lastTime">统计时间为:</h3>
+<script type="text/javascript" src="/Scripts/dateformat.js"></script>
+<link rel="stylesheet" href="../../Scripts/jqxChart/jqx.base.css" type="text/css" />
+<script type="text/javascript" src="../../Scripts/jqxChart/jqxcore.js"></script>
+<script type="text/javascript" src="../../Scripts/jqxChart/jqxchart.js"></script>
+<script type="text/javascript" src="../../Scripts/jqxChart/jqxdata.js"></script>
+<script type="text/javascript" src="../../Scripts/reports.js"></script>
+<div>
+    <span>选择分店:</span>
+    <select id="selectedNode">
+    </select>
+    <span>请选择日期:</span><input type="text" id="selectedDate" readonly="readonly"/>
+    <input type="button" id="refresh" value="刷新" />
+
+</div>
+<div id="reports" style="width:100%;height:500px"></div>

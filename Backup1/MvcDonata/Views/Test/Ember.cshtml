@@ -1,0 +1,236 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<header>
+    <script src="../../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../../Scripts/jquery.jqote2.min.js"></script>
+    <script src="../../Scripts/mustache.js"></script>
+    <style type="text/css">
+        #orderList tr.pager ul.pager
+        {
+            text-align:center;
+            vertical-align:middle;
+        }
+        #orderList tr.pager ul.pager li
+        {
+            margin:0.2em;
+        }
+        #orderList tr.pager ul.pager li a
+        {
+            margin:0.5em;
+            padding:0.5em 0.5em 0.5em 0.5em;
+        }
+        #orderList tr.pager ul.pager li:hover
+        {
+            background-color:#336600;  
+        }
+        .currentPager
+        {
+            border:1px;
+            border-color:Maroon;
+            border-style:dotted;
+        }
+    </style>
+
+<script type="text/html" id="template-phoneorder">
+    <![CDATA[
+    <tr class="row">
+        <td><%=this.BarCode%></td>
+        <td><%=this.Phone%></td>
+        <td><%=this.Address%></td>
+        <td><%=this.Node%></td>
+        <td><%=this.Total%></td>
+        <td><%=this.CreatedTime%></td>
+        <td><%=this.ReceivedTime!=null%></td>
+    </tr>
+    <tr class="details" style="display:none;">
+        <td>明细</td>
+        <td colspan="6">
+            <table style="width:100%" id="orderDetails">
+                <tr style="color:White;background-color:#1C5E55;font-weight:bold;" class="header">
+			                <td datafield="Name">名称</td>
+                            <td datafield="Price">单价</td>
+                            <td datafield="Amount">数量</td>
+                            <td datafield="Total">小计</td>
+                            <td datafield="Remark">说明</td>
+                </tr>
+                <tr class="remark"><td colspan="5" class="remark">&nbsp;<%=this.Remark%></td></tr> @*备注*@
+            </table>
+        </td>
+    </tr>
+    ]]>
+</script>
+
+<script type="text/html" id="template-phoneorder1">
+    {{#orders}}
+    <tr class="row">
+        <td>{{BarCode}}</td>
+        <td>{{Phone}}</td>
+        <td>{{Address}}</td>
+        <td>{{Node}}</td>
+        <td>{{Total}}</td>
+        <td>{{CreatedTime}}</td>
+        <td>{{ReceivedTime}}</td>
+    </tr>
+        <tr class="details" style="display:none;">
+        <td>明细</td>
+        <td colspan="6">
+            <table style="width:100%">
+                <tr style="color:White;background-color:#1C5E55;font-weight:bold;" class="header">
+			                <td datafield="Name">名称</td>
+                            <td datafield="Price">单价</td>
+                            <td datafield="Amount">数量</td>
+                            <td datafield="Total">小计</td>
+                            <td datafield="Remark">说明</td>
+                </tr>
+                {{#Details}}
+                <tr>
+                    <td>{{DishName}}</td>
+                    <td>{{Price}}</td>
+                    <td>{{Amount}}</td>
+                    <td></td>
+                    <td>{{Remark}}</td>
+                </tr>
+                {{/Details}}
+                <tr class="remark"><td colspan="5" class="remark">&nbsp;{{Remark}}</td></tr> @*备注*@
+            </table>
+        </td>
+    </tr>
+    {{/orders}}
+</script>
+
+<script type="text/html" id="template-details">
+    <![CDATA[
+    <tr>
+        <td><%=this.DishName%></td>
+        <td><%=this.Price%></td>
+        <td><%=this.Amount%></td>
+        <td><%=this.Price*this.Amount%></td>
+        <td><%=this.Remark%></td>
+    </tr>
+    ]]>
+</script>
+
+<script type="text/javascript" >
+    var datas;
+    $(document).ready(function () {
+        $.getJSON("/phoneorder/getphoneorders",
+            {
+                paged: true,
+                pageSize: 10,
+                pageIndex: 1,
+                node: "全部",
+                selectedDate: "2013-5-19"
+            },
+            function (result) {
+                datas = result;
+                //$($("#template-phoneorder").jqote(result.datas)).insertBefore("#orderList tr.pager")
+                //    .filter("tr.row")
+                //.each(function (index, tr) {
+                //    $(this).addClass(index / 2 == 0 ? "odd" : "even");
+                //    var $detailTable=$(this).next("tr.details");
+                //    $($("template-details").jqote(result.datas[index].Details))
+                //    .insertBefore($detailTable.find("tr.remark"));
+                //}
+                //);
+
+
+                var html = Mustache.render($("#template-phoneorder1").html(), { orders: [result.datas[0]] });
+
+                html = html.replace("\n", "");
+
+                alert("test2");
+                $(html).insertBefore("#orderList tr.pager");
+                
+            }
+            );
+    }
+    );
+
+
+
+
+</script>
+</header>
+<body>
+<h2>Ember</h2>
+
+<table cellspacing="0" cellpadding="3" rules="rows" id="orderList" style="background-color:White;border-color:#E7E7FF;border-width:1px;border-style:None;width:755px;border-collapse:collapse;width:90%">
+	    <tr style="color:#F7F7F7;background-color:#4A3C8C;font-weight:bold;" class="header">
+			    <td datafield="BarCode" width="50px">编号</td>
+                <td datafield="Phone">客户电话</td>
+                <td datafield="Address">客户住址</td>
+                <td datafield="Node">分店</td>
+                <td datafield="Total">总金额</td>
+                <td datafield="Time">时间</td>
+                <td datafield="Received">是否收到</td>
+       </tr>
+
+        <tr class="pager">
+        <td colspan="7"><ul class="pager"><li class="template" style="display: inline;list-style: none;" ><a href="#"></a></li></ul></td>
+        </tr>
+ </table>
+
+
+
+<tr class="row">
+        <td>P00083135</td>
+        <td>18611902601</td>
+        <td>动力A1区3#-2-1003</td>
+        <td>二外店</td>
+        <td>82</td>
+        <td>2013-05-19 19:45:33</td>
+        <td></td>
+    </tr>
+
+<tr class="details" style="display:none;">
+        <td>明细</td>
+        <td colspan="6">
+            <table style="width:100%" id="orderDetails1">
+                <tr style="color:White;background-color:#1C5E55;font-weight:bold;" class="header">
+			                <td datafield="Name">名称</td>
+                            <td datafield="Price">单价</td>
+                            <td datafield="Amount">数量</td>
+                            <td datafield="Total">小计</td>
+                            <td datafield="Remark">说明</td>
+                </tr>
+                <tr>
+                    <td>外卖</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td></td>
+                    <td>></td>
+                </tr>
+                <tr>
+                    <td>田园风光12</td>
+                    <td>39</td>
+                    <td>1</td>
+                    <td></td>
+                    <td>></td>
+                </tr>
+                <tr>
+                    <td>罗宋汤</td>
+                    <td>15</td>
+                    <td>1</td>
+                    <td></td>
+                    <td>></td>
+                </tr>
+                <tr>
+                    <td>黑椒牛柳焗面</td>
+                    <td>25</td>
+                    <td>1</td>
+                    <td></td>
+                    <td>></td>
+                </tr>
+                <tr class="remark"><td colspan="5" class="remark">&nbsp;</td></tr> 
+            </table>
+        </td>
+    </tr> 
+
+
+
+</body>
+</html>

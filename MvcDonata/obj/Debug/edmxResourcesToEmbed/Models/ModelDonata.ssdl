@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="donataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="donataModelStoreContainer">
+    <EntitySet Name="Addresses" EntityType="donataModel.Store.Addresses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Clocking" EntityType="donataModel.Store.Clocking" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Commands" EntityType="donataModel.Store.Commands" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customers" EntityType="donataModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employee" EntityType="donataModel.Store.Employee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderDetails" EntityType="donataModel.Store.OrderDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="donataModel.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Store" EntityType="donataModel.Store.Store" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StoreDetails" EntityType="donataModel.Store.StoreDetails" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="City" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Address" Type="varchar(max)" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="LastNode" Type="varchar" MaxLength="50" />
+    <Property Name="LastUsedTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Clocking">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+    <Property Name="Node" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Commands">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Command" Type="varchar(max)" Nullable="false" />
+    <Property Name="Node" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+    <Property Name="Employee" Type="varchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Sex" Type="int" Nullable="false" />
+    <Property Name="Phone" Type="varchar(max)" Nullable="false" />
+    <Property Name="Total" Type="decimal" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="LastOrderTime" Type="datetime" />
+    <Property Name="ActivedDegree" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Number" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="BankCard" Type="varchar" MaxLength="50" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="Post" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Salary" Type="decimal" Nullable="false" />
+    <Property Name="Node" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Phone" Type="nchar" MaxLength="10" />
+    <Property Name="Actived" Type="bit" Nullable="false" />
+    <Property Name="LastLogin" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Price" Type="decimal" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="Remark" Type="varchar(max)" />
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="OrderType" Type="int" Nullable="false" />
+    <Property Name="Index" Type="int" Nullable="false" />
+    <Property Name="ParentIndex" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Standards" Type="varchar(max)" />
+    <Property Name="Unit" Type="varchar" MaxLength="20" />
+    <Property Name="Price" Type="decimal" Nullable="false" Scale="4" />
+    <Property Name="Remark" Type="varchar(max)" />
+    <Property Name="MaterialType" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Provider" Type="varchar(max)" />
+    <Property Name="LastAccess" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Store">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Remark" Type="varchar(max)" Nullable="false" />
+    <Property Name="Node" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="StoreType" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+    <Property Name="Total" Type="decimal" Nullable="false" />
+    <Property Name="Employee" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="StoreDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="StoreID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Price" Type="decimal" Nullable="false" Scale="4" />
+    <Property Name="Amount" Type="decimal" Nullable="false" Scale="4" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,245 @@
+﻿@model IEnumerable<IGrouping<string,MvcDonata.Models.DishModel>>
+
+@{
+    Layout = null;
+    
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" charset="utf-8" />
+    <link href="/Scripts/jquery.mobile/jquery.mobile-1.2.0.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/jquery.mobile/jquery.mobile.structure-1.2.0.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/jquery.mobile/jquery.mobile.theme-1.2.0.min.css" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.6.4.min.js")" type="text/javascript"></script>
+    <script src="/Scripts/jquery.mobile/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        ul.header
+        {
+            list-style:none;
+            padding:0;
+            margin:0;
+        }
+        ul.header li
+        {
+            display:inline;
+            list-style:none;
+            height:60px;
+            padding:0;
+            margin:auto 0;
+        }
+        li.button-back
+        {
+           
+        }
+        .header-image
+        {
+            padding:0;
+            margin:0;
+            vertical-align:middle;
+        }
+        img.button-back
+        {
+            margin:10px;
+        }
+        img.donata-title
+        {
+            width:307px;
+            margin:15px auto;
+        }
+        img.donata-logo
+        {
+            float:right;
+        }
+        div.page
+        {
+            
+        }
+        #home ul.main-menu li
+        {
+            height:102px;
+        }
+        
+        #pizza ul.main-menu li
+        {
+            height:160px;
+        }
+        
+        ul.main-menu div.ui-li
+        {
+            height:60px;
+            top:50%;
+            margin-top:-30px;
+       
+        }
+        
+        ul.main-menu a,ul.main-menu img
+        {
+            margin:0 50px;
+            margin-top:8px;
+        }
+        ul.main-menu span
+        {
+            font-size:xx-large;
+            color:Red;
+            margin:0;
+            vertical-align:middle;
+        }
+        div.footer div
+        {
+           text-align:center;
+        }
+        .icon-label
+        {
+            color:White;
+            display:block;
+            font-size:24px;
+        }
+
+        .ui-bar-v {
+	        border: 1px solid 		#333 /*{a-bar-border}*/;
+	        background: 			#111 /*{a-bar-background-color}*/;
+	        color: 					#fff /*{a-bar-color}*/;
+	        font-weight: bold;
+	        text-shadow: 0 /*{a-bar-shadow-x}*/ -1px /*{a-bar-shadow-y}*/ 1px /*{a-bar-shadow-radius}*/ #000 /*{a-bar-shadow-color}*/;
+	        background-image: -webkit-gradient(linear, left top, left bottom, from(#ff0000), color-stop(0.5, white), to(rgb(255, 0, 0))); /* Saf4+, Chrome */
+	        /*background-image: -webkit-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); *//* Chrome 10+, Saf5.1+ */
+	        background-image:    -moz-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* FF3.6 */
+	        background-image:     -ms-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* IE10 */
+	        background-image:      -o-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* Opera 11.10+ */
+	        background-image:         linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/);
+        }
+
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+           
+        }
+    );
+    </script>
+</head>
+<body class="ui-mobile-viewport">
+
+@*首页*@
+<div class="ui-page ui-body-c ui-page-active" data-role="page" id="home">
+    
+    @Html.Partial("WebOrderHeader")
+
+    <div class="ui-content page" data-role="content" >
+        <ul data-role="listview" data-inset="true" class="main-menu">
+            <li><a href="#"><img src="@Url.Content("~/Content/Images/WebOrder/dot.png")"  class="ui-li-icon"/><span>本季主打</span></a></li>
+            <li><a href="#pizza"><img src="@Url.Content("~/Content/Images/WebOrder/dot.png")" class="ui-li-icon"/><span>比&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;萨</span></a></li>
+            <li><a href="#"><img src="@Url.Content("~/Content/Images/WebOrder/dot.png")" class="ui-li-icon"/><span>主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;食</span></a></li>
+            <li><a href="#"><img src="@Url.Content("~/Content/Images/WebOrder/dot.png")" class="ui-li-icon"/><span>小&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;吃</span></a></li>
+            <li><a href="#"><img src="@Url.Content("~/Content/Images/WebOrder/dot.png")" class="ui-li-icon"/><span>沙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;拉</span></a></li>
+        </ul>
+    </div>
+
+    @Html.Partial("WebOrderFooter")
+
+</div>
+
+@foreach (var g in Model)
+{
+<div class="ui-page ui-body-c" data-role="page" id="@g.Key">
+    
+    @Html.Partial("WebOrderHeader")
+
+    <div class="ui-content page" data-role="content" >
+        <ul data-role="listview" data-inset="true" class="main-menu">
+            <li data-role="list-divider" style="height:102px;padding:0;margin:0">
+                <div class="ui-grid-b" style="top:50%;position:relative;margin-top:-19px;">
+                    <div class="ui-block-a" style="width:8%">
+                        <img src="@Url.Content("~/Content/Images/WebOrder/dot.png")"/>
+                        
+                    </div>
+                    <div class="ui-block-b" style="width:46%;text-align:left;">
+                        <span>@g</span>
+                    </div>
+                    <div class="ui-block-c" style="width:46%;text-align:right;">
+                        <span>点击加入购物车</span>
+                    </div>
+                </div>
+                    
+                    
+            </li>
+            <li>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <img src="@Url.Content("~/Content/Images/WebOrder/pizza.png")" />
+                        <img style="position:absolute;margin:0;top:20px;left:50px;z-index:10;" src="@Url.Content("~/Content/Images/WebOrder/chart.png")" />
+                    </div>
+                    <div class="ui-block-b" style="text-align:right;">
+                        <h2><b style="color:Green;">（清真 ）</b>墨西哥小牛排比萨</h2>
+                        <h2>Mexican Mini Beef Steak</h2>
+                        <p style="color:Red;">原价 9'￥49 12'￥59</p>
+                        <p>上等小牛排，青椒，黑椒西红柿酱</p>
+                        <p>Mini Beef Steak,Green Peppers</p>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <img src="@Url.Content("~/Content/Images/WebOrder/pizza.png")" />
+                        <img style="position:absolute;margin:0;top:20px;left:50px;z-index:10;" src="@Url.Content("~/Content/Images/WebOrder/chart.png")" />
+                    </div>
+                    <div class="ui-block-b" style="text-align:right;">
+                        <h2><b style="color:Green;">（清真 ）</b>墨西哥小牛排比萨</h2>
+                        <h2>Mexican Mini Beef Steak</h2>
+                        <p style="color:Red;">原价 9'￥49 12'￥59</p>
+                        <p>上等小牛排，青椒，黑椒西红柿酱</p>
+                        <p>Mini Beef Steak,Green Peppers</p>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <img src="@Url.Content("~/Content/Images/WebOrder/pizza.png")" />
+                        <img style="position:absolute;margin:0;top:20px;left:50px;z-index:10;" src="@Url.Content("~/Content/Images/WebOrder/chart.png")" />
+                    </div>
+                    <div class="ui-block-b" style="text-align:right;">
+                        <h2><b style="color:Green;">（清真 ）</b>墨西哥小牛排比萨</h2>
+                        <h2>Mexican Mini Beef Steak</h2>
+                        <p style="color:Red;">原价 9'￥49 12'￥59</p>
+                        <p>上等小牛排，青椒，黑椒西红柿酱</p>
+                        <p>Mini Beef Steak,Green Peppers</p>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <img src="@Url.Content("~/Content/Images/WebOrder/pizza.png")" />
+                        <img style="position:absolute;margin:0;top:20px;left:50px;z-index:10;" src="@Url.Content("~/Content/Images/WebOrder/chart.png")" />
+                    </div>
+                    <div class="ui-block-b" style="text-align:right;">
+                        <h2><b style="color:Green;">（清真 ）</b>墨西哥小牛排比萨</h2>
+                        <h2>Mexican Mini Beef Steak</h2>
+                        <p style="color:Red;">原价 9'￥49 12'￥59</p>
+                        <p>上等小牛排，青椒，黑椒西红柿酱</p>
+                        <p>Mini Beef Steak,Green Peppers</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    @Html.Partial("WebOrderFooter")
+
+</div>
+}
+
+
+</body>
+</html>

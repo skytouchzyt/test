@@ -1,0 +1,93 @@
+﻿@model IEnumerable <IGrouping<string,MvcDonata.Models.DishModel>>
+
+@{
+    ViewBag.Title = "餐品列表";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.localScroll({
+            easing: 'easeInOutBack',
+            speed: 1400
+        });
+    }
+);
+</script>
+
+<h2>餐品列表</h2>
+
+<p>
+    @Html.ActionLink("添加新餐品", "Create")
+</p>
+
+    <section id="Wrapper" role="document">
+
+        <div id="Navi" role="navigation">
+
+                <nav>
+                    
+                                           <a href="#Home" id="Logo">Donata Pizza</a>
+                    
+											<ul id="menu" class="menu">
+                                            @foreach (var g in Model)
+                                            {
+                                                <li id="@("li"+g.Key)"><a href="#@g.Key"><span>@g.Key</span></a></li>
+                                            }
+                                            </ul>                                    	
+			                   
+                </nav>
+        </div>
+
+
+        @foreach(var g in Model)
+        {
+	        <section id="@g.Key" role="banner" style="margin:20">
+
+                <table class="mytable">
+    <tr>
+        <th>
+            餐品名称
+        </th>
+        <th>
+            价格
+        </th>
+        <th>
+            台位
+        </th>
+        <th>
+            类别
+        </th>
+        <th>
+            计数
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in g.ToList()) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DefaultBar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Count)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+<div><a href="#Navi"><span>返回顶部</span></a></div>
+            </section>
+        }

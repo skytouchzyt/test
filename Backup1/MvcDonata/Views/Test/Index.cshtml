@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+<html>
+<head>
+<style type="text/css">
+div
+{
+    width:300px;
+    height:100px;
+    border:1px solid blue;
+    -webkit-transform: rotate(180deg);
+    -webkit-box-shadow:2px 2px 3px rgba(135, 139, 144, 0.4);
+}
+</style>
+<script language="javascript">
+    // Find the right method, call on correct element
+    function launchFullScreen(element) {
+        if (element.requestFullScreen) {
+            element.requestFullScreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullScreen) {
+            element.webkitRequestFullScreen();
+        }
+    }
+    //launchFullScreen(document.documentElement);
+</script>
+</head>
+<body>
+<div>测试中...</div>
+</body>
+</html>

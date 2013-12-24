@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "电话弹屏";
+}
+
+<h2>电话弹屏</h2>
+<script type="text/javascript" src="@Url.Content("~/Scripts/dateformat.js")"></script>
+<script src="@Url.Content("~/Scripts/qnviccub.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/qnvfunc.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/watchphone.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/cookie.js")" type="text/javascript"></script>
+<script type="text/javascript" language="JavaScript" for="qnviccub" event="OnQnvEvent(chID,type,handle,result,param,szdata,szdataex)"> 
+	T_GetEvent(chID,type,handle,result,szdata)
+</script>
+
+<textarea id="StatusArea" rows="13" name="S1" cols="86"></textarea>
+<object classid="clsid:F44CFA19-6B43-45EE-90A3-29AA08000510" id="qnviccub" data="DATA:application/x-oleobject;BASE64,GfpM9ENr7kWQoymqCAAFEAADAAD7FAAADhEAAA==" width="33" height="33">
+</object>
+
+<div>
+<input type="button" id="setDeviceIndex" value="设置电话设备号" />
+</div>
+
+<div>
+<input type="text" id="phone" />
+<input type="button" id="createCall" value="创建来电" />
+</div>
+
+

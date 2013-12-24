@@ -1,0 +1,97 @@
+﻿@model IEnumerable<MvcDonata.Models.CustomerModel>
+
+@{
+    ViewBag.Title = "顾客资料";
+}
+
+<script type="text/javascript">
+var pageCount=@ViewBag.PageCount;
+function initWhenAjaxDone()
+{
+    //设置页码
+    $(".pageNumber").html("第"+getPage()+"页"+" 共"+pageCount+"页");
+}
+function getPage() {
+    var page = getCookie("Page");
+    if (page)
+        page=page - 0;
+    else
+        page=1;
+
+    $("#page").val(page);
+    return page;
+}
+$(document).ready(function () {
+
+    $("#Container").load("/customers/page", { phone: "", address: "", page: getPage() }, initWhenAjaxDone);
+
+    $(".pre").button().click(function () {
+        var page = getPage();
+        if (page > 0) {
+            page--;
+            $("#Container").load("/customers/page", { phone: "", address: "", page: page }, initWhenAjaxDone);
+        }
+    }
+        );
+
+    $(".next").button().click(function () {
+        var page = getPage();
+        if (page >= 0) {
+            page++;
+            $("#Container").load("/customers/page", { phone: "", address: "", page: page }, initWhenAjaxDone);
+        }
+    });
+
+    $("#page").keypress(function(e)
+    {
+            var str=String.fromCharCode(e.keyCode);
+            if(e.keyCode==13)
+            {
+                $("#Container").load("/customers/page", { phone: "", address: "", page: $("#page").val() }, initWhenAjaxDone);
+                return false;
+            }
+            if(str<"0"||str>"9")
+            {
+                return false;
+            }
+            
+    }
+    );
+}
+);
+</script>
+
+<h2>顾客资料</h2>
+
+<style type="text/css">
+.pageNumber 
+{
+
+    float:right;
+}
+.controller
+{
+        height: 4em;
+    line-height: 4em;
+    overflow: hidden;
+    width:900px;
+}
+</style>
+
+<p>
+    @Html.ActionLink("添加新的客户", "Create")
+</p>
+<div class="controller">
+    <a class="pre" >上一页</a>
+    <a class="next" >下一页</a>
+    转到<input type="text" id="page" />页 <span id="message"></span>
+    <span class="pageNumber"></span>
+</div>
+
+<div id="Container"></div>
+
+<div class="controller" style="width:900px;vertical-align:bottom;">
+    <a class="pre" >上一页</a>
+    <a class="next" >下一页</a>
+    <span class="pageNumber"></span>
+</div>

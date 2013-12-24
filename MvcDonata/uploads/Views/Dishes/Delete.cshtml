@@ -1,0 +1,43 @@
+﻿@model MvcDonata.Models.DishModel
+
+@{
+    ViewBag.Title = "删除餐品";
+}
+
+<h2>您确定要删除此餐品吗?</h2>
+
+<fieldset>
+    <legend>餐品数据</legend>
+
+    <div class="display-label">餐品名称</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">单价</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">台位</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DefaultBar)
+    </div>
+
+    <div class="display-label">类别</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClassName)
+    </div>
+
+    <div class="display-label">计数</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Count)
+    </div>
+
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="删除" /> |
+        @Html.ActionLink("返回列表", "Index")
+    </p>
+}

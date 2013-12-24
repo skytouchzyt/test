@@ -1,0 +1,188 @@
+﻿@{
+    ViewBag.Title = "订货";
+}
+<style type="text/css">
+
+#ordersList,#createOrder,#stockoutList
+ {
+     background:#5C87B2;
+     padding:0;
+     margin:0;
+ }
+ table.tableForOrdersList
+ {
+     width:100%;
+     padding:0;
+     margin:0;
+ }
+ table.tableForOrdersList td.left
+ {
+     width:55%;
+     text-align:center;
+     vertical-align:top;
+     padding:0;
+     margin:0;
+ }
+  table.tableForOrdersList td.right
+ {
+     width:45%;
+     text-align:center;
+     vertical-align:top;
+     padding:0;
+     margin:0;
+ }
+
+h2
+{
+    font-size:32;
+    color:White;
+    text-shadow: 1px 1px 2px #111;
+    font-weight:bold;
+}
+table tr.header td
+{
+    text-align:center;
+}
+tr.selectedRow
+{
+    background:#336699;
+}
+
+ul#tabs li
+{
+    display:inline;
+    list-style:none;
+    padding:1em;
+}
+
+ul#tabs li.selected
+{
+     border:1px solid white;
+}
+
+div.addProduct,div.ordersList 
+{
+
+    border:5px solid white;
+    padding:1em;
+    margin:1em;
+}
+div.orderDetails
+{
+
+    border:5px solid white;
+    padding:1em;
+}
+
+</style>
+
+<script src="@Url.Content("~/Scripts/jquery.datagrid.js")" type="text/javascript"></script>
+
+
+<script src="@Url.Content("~/Scripts/ordersList.js")" type="text/javascript"></script>
+
+
+<h2>订货</h2>
+
+@*<input type="button" value="全屏" id="test" />*@
+
+<div id="tabs">
+    <ul >
+        <li><a href="#createOrder">添加订货单</a></li>
+        <li class="selected"><a href="#ordersList">订货单查看</a></li>
+        <li><a href="#stockoutList">发货单查看</a></li>
+    </ul>
+
+    <div id="createOrder">
+         @Html.Partial("CreateOrder")
+    </div>
+   
+
+    <div id="ordersList">
+
+    <div class="move">
+    <div>
+        <span style="color:White;">选择时间:</span>
+        <input id="txtSelectedDate" type="text" readonly="readonly" />
+        <input id="combined" type="checkbox" value="合并显示" checked/><span style="color:White">按天合并显示</span>
+    </div>
+
+    <table class="tableForOrdersList" style="border-width:0px;">
+        <tr>
+            <td class="left" style="border-width:0px;">
+                <div class="ordersList">
+        <table id="orders" style="width:100%;color:White;">
+            <tr style="color:White;background-color:#1C5E55;font-weight:bold;" class="header">
+			            <td datafield="Time">时间</td>
+                        <td datafield="Employee">操作员</td>
+                        <td datafield="Node">分店</td>
+                        <td datafield="Total">总计</td>
+                        <td>操作</td>
+            </tr>
+            <tr class="template" style="display:none">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <input type="button" value="删除" class="del" />
+                    <input type="button" value="打印" class="print" />
+                </td>
+            </tr>
+        </table>
+        <div style="text-align:right;width:100%;">
+            <form action="/store/stockout" method="post" id="postData">
+                <input type="hidden" id="datas" name="datas"/>
+                <input type="hidden" id="stockoutNode" name="stockoutNode" />
+                @if (User.IsInRole("库管"))
+                {
+                    <input type="button" value="库存" id="viewStock" style="margin:1em 0 0 0;" />
+                    <input type="button" value="采购" id="eastMarkOrder" style="margin:1em 0 0 0;"/>
+                    <input type="button" value="发货" id="dealOrder" style="margin:1em 0 0 0;"/>
+                }
+            </form>          
+        </div>
+    </div>
+            </td>
+            <td class="right" style="border-width:0px;">
+                    <div class="orderDetails">
+        <table id="details" style="width:100%;color:White;">
+            <tr style="color:White;background-color:#1C5E55;font-weight:bold;" class="header">
+			            <td  datafield="Name">名称</td>
+                        <td  datafield="Standards">规格</td>
+                        <td  datafield="Unit">单位</td>
+                        <td  datafield="Price">单价</td>
+                        <td  datafield="MaterialType">类别</td>
+                        <td  datafield="Amount">数量</td> 
+            </tr>
+            <tr class="template" style="display:none">
+                <td style="text-align:left;font-size:smaller;"></td>
+                <td style="text-align:left;font-size:smaller;"></td>
+                <td style="width:50px;text-align:center;"></td>
+                <td style="width:50px;text-align:right;"></td>
+                <td style="width:50px;text-align:center;"></td>
+                <td style="width:50px;text-align:right;font-weight:bold;"></td>
+            </tr>
+        </table>
+    </div>
+            </td>
+        </tr>
+    </table>
+
+    </div>
+    
+
+    
+    </div>
+
+    <div id="stockoutList"></div>
+
+</div>
+
+
+
+
+
+<script src="@Url.Content("~/Scripts/createorder.js")" type="text/javascript"></script>
+
+@Html.Partial("LoadingDialog")

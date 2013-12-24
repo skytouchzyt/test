@@ -1,0 +1,72 @@
+﻿@model MvcDonata.Models.DNS
+
+@{
+
+
+    ViewBag.Title = "分店列表";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <script type="text/javascript">
+        function initTable() {
+            $("table").addClass("table");
+            $("tr:eq(0)").addClass("head");
+            $("tr:gt(0):even").addClass("row");
+            $("tr:gt(0):odd").addClass("alter");
+        }
+        $(document).ready(
+        function () {
+
+            $("#container").load("dns/list",initTable);
+
+            setInterval(
+                function () {
+                    
+                    $.post("dns", { Node: $("#Node").val(), Port: $("#Port").val() });
+
+                    $("#container").load("dns/list", initTable);
+                },
+                10000
+                );
+
+
+        }
+        );
+    </script>
+
+
+<style type="text/css">
+    	.table {
+					background-color: white;
+					border-color: #E7E7FF;
+					border-width: 1px;
+					border-style: None;
+					width: 500px;
+					border-collapse: collapse;
+				}
+		.head {
+					color: #F7F7F7;
+					background-color: #4A3C8C;
+					font-weight: bold;
+					text-align:center;
+			}
+		.row {
+					color: #4A3C8C;
+					background-color: #F7F7F7;
+					
+			}
+		.alter {
+					color: #4A3C8C;
+					background-color: #E7E7FF;
+				}
+		
+    </style>
+@using (Html.BeginForm())
+{
+<div>@Html.LabelFor(m=>m.Node) @Html.TextBoxFor(m=>m.Node)</div>
+<div>@Html.LabelFor(m=>m.Port) @Html.TextBoxFor(m=>m.Port)</div>
+<div><span id="message">@ViewBag.Message</span></div>
+}
+<div id="container">
+
+</div>

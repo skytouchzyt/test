@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+<table>
+<tr>
+<td>分店</td>
+<td>IP地址</td>
+<td>更新时间</td>
+<td>版本</td>
+</tr>
+@if (ViewBag.list != null)
+{
+    foreach (var d in ViewBag.list)
+    {
+
+        <tr>
+        <td><a href="@string.Format("http://{0}:{1}", d.IP, d.Port)" target="_blank">@d.Node</a></td>
+        <td>@d.IP</td>
+        <td>@d.UpdatedTime</td>
+        <td>@d.ApplicationVersion</td>
+        </tr>
+    }
+}
+</table>

@@ -1,0 +1,91 @@
+﻿@model List<IGrouping<string,MvcDonata.Models.Employee>>
+@{
+    ViewBag.Title = "员工列表";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    	.table {
+					background-color: white;
+					border-color: #E7E7FF;
+					border-width: 1px;
+					border-style: None;
+					width: 500px;
+					border-collapse: collapse;
+				}
+		.head {
+					color: #F7F7F7;
+					background-color: #4A3C8C;
+					font-weight: bold;
+					text-align:center;
+			}
+		.row {
+					color: #4A3C8C;
+					background-color: #F7F7F7;
+					
+			}
+		.alter {
+					color: #4A3C8C;
+					background-color: #E7E7FF;
+				}
+		
+    </style>
+
+<script type="text/javascript">
+
+    function showInactived(show) {
+        if (show)
+            $("tr[actived=False]").show();
+        else
+            $("tr[actived=False]").hide();
+    }
+
+    $(document).ready(function () {
+        $("tr").each(function (index, tr) {
+            if ($(tr).children("td").length == 1)
+                $(tr).addClass("head");
+            else if ($($(tr).children("td")[0]).html() == "姓名")
+                $(tr).addClass("head");
+            else if (index % 2 == 0)
+                $(tr).addClass("row");
+            else
+                $(tr).addClass("alter");    
+            });
+
+        showInactived($("#actived").attr("checked") == false);
+
+        $("#actived").click(function () {
+            showInactived($(this).attr("checked") == false);
+        });
+        
+
+    }
+    );
+</script>
+<div>@Html.CheckBox("actived",true)仅显示激活员工</div>
+<table>
+@foreach (var node in Model)
+{
+    <tr>
+        <td colspan="4">@node.Key</td>
+    </tr>
+        
+    <tr>
+        <td>姓名</td>
+        <td>职位</td>
+        <td>入职日期</td>
+        <td>编号</td>
+    </tr>
+        foreach (var e in node.ToList())
+        {
+            <tr actived="@e.Actived">
+                <td>@Html.ActionLink(e.Name,"EditEmployee","Account",new {id=e.ID},new {})</td>
+                <td>@e.Post</td>
+                <td>@e.EntryDate.ToString("yyyy-MM-dd")</td>
+                <td>@e.Number</td>
+            </tr>
+        }
+  
+}
+</table>
+

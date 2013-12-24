@@ -1,0 +1,65 @@
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
+<html ng-app>
+  <head>
+      <script src="../../Scripts/jquery-1.7.2.min.js"></script>
+      <script src="../../Scripts/angular.min.js"></script>
+      <script src="../../Scripts/json-template.js"></script> @*可以用于格式化字符串*@
+      
+      <style type="text/css">
+          #orderList tr.pager ul.pager
+            {
+                text-align:center;
+                vertical-align:middle;
+            }
+            #orderList tr.pager ul.pager li
+            {
+                margin:0.2em;
+            }
+            #orderList tr.pager ul.pager li a
+            {
+                margin:0.5em;
+                padding:0.5em 0.5em 0.5em 0.5em;
+            }
+            #orderList tr.pager ul.pager li:hover
+            {
+                background-color:#336600;  
+            }
+            .currentPager
+            {
+                border:1px;
+                border-color:Maroon;
+                border-style:dotted;
+            }
+      </style>
+
+      <script type="text/javascript">
+          var scope;
+
+          function dishCtrl($scope) {
+              scope = $scope;
+              $scope.Name = "超级至尊";
+              $scope.Price = "50.0";
+
+              $scope.setData = function (name, price) {
+                  $scope.Name = name;
+                  $scope.Price = price;
+              };
+          }
+
+          
+      </script>
+      
+      <title>this is a angular</title>
+
+  </head>
+  <body ng-controller="dishCtrl" >
+      <span>名称：{{Name}}</span><br />
+      <span>价格：{{Price}}</span>
+
+      <button ng-click="Name='test2'">set</button>
+  </body>
+</html>

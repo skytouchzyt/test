@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MvcDonata.Models.AddressModel>
+
+<table style="width:600px">
+    <tr>
+        <th>
+            编号
+        </th>
+        <th>
+            城市
+        </th>
+        <th>
+            地址
+        </th>
+        <th>
+            分店
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastNode)
+        </td>
+    </tr>
+}
+
+</table>

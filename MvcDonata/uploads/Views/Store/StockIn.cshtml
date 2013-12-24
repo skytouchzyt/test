@@ -1,0 +1,224 @@
+﻿@{
+    ViewBag.Title = "进货管理";
+}
+<style type="text/css">
+ #stockinList,#createOrder
+ {
+     background:#5C87B2;
+     padding:0;
+     margin:0;
+ }
+ table.tableForOrdersList
+ {
+     width:100%;
+     padding:0;
+     margin:0;
+ }
+ table.tableForOrdersList td.left
+ {
+     width:55%;
+     text-align:center;
+     vertical-align:top;
+     padding:0;
+     margin:0;
+ }
+  table.tableForOrdersList td.right
+ {
+     width:45%;
+     text-align:center;
+     vertical-align:top;
+     padding:0;
+     margin:0;
+ }
+div.addProduct,div.ordersList 
+{
+
+    border:5px solid white;
+    padding:1em;
+    margin:1em;
+}
+div.order,div.orderDetails
+{
+
+    border:5px solid white;
+    padding:1em;
+}
+fieldset span 
+{
+     color:White;
+     margin:1em;
+}
+fieldset legend,div.addProduct,div.order
+{
+    color:White;
+    margin:1em;
+}
+fieldset
+{
+    margin:1em 0 0 0;
+}
+fieldset div
+{
+    padding:5px;
+}
+h2
+{
+    font-size:32;
+    color:White;
+    text-shadow: 1px 1px 2px #111;
+    font-weight:bold;
+}
+table tr.header td
+{
+    text-align:center;
+}
+tr.selectedRow
+{
+    background:#336699;
+}
+
+ul#tabs li
+{
+    display:inline;
+    list-style:none;
+    padding:1em;
+}
+
+ul#tabs li.selected
+{
+     border:1px solid white;
+}
+
+fieldset input[type='text'],fieldset select,select.provider,select.stockinListProvider
+{
+    background-color:#336699;
+    color:white;
+    font-weight:bolder;
+    font:bolder small "微软雅黑","黑体","文泉驿黑体";
+}
+fiedlset span
+{
+    width:100px;
+    text-align:right;
+}
+input.price,input.amount
+{
+    width:50px;
+    background-color:#336699;
+    text-align:right;
+    font-size:small;
+}
+input.price
+{
+    font-style:italic;
+}
+input.amount
+{
+    font-weight:bolder;
+}
+</style>
+
+<script src="@Url.Content("~/Scripts/jquery.datagrid.js")" type="text/javascript"></script>
+
+<script src="@Url.Content("~/Scripts/stockinList.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#tabs").tabs();
+    }
+);
+</script>
+
+<h2>进货</h2>
+
+<div id="tabs">
+
+    <ul>
+    <li><a href="#createOrder">添加进货单</a></li>
+    <li><a href="#stockinList">进货单查看</a></li>
+    </ul>
+
+<div class="tab" id="createOrder">
+     <div>
+        <span style="color:White;">选择供货商:</span>
+        <input type="text" class="Provider" />
+        <span style="color:White;">选择时间:</span>
+        <input class="Date" type="text" readonly="readonly" />
+    </div>
+    @Html.Partial("CreateOrder")
+    <script src="@Url.Content("~/Scripts/createstockin.js")" type="text/javascript"></script>
+</div>
+
+
+
+<div id="stockinList">
+    <div>
+            <span style="color:White;">选择时间:</span>
+            <input id="txtSelectedDate" type="text" readonly="readonly" />
+            <span style="color:White;">选择供货商:</span>
+            <select class="stockinListProvider"></select>
+    </div>
+    <table class="tableForOrdersList" style="border-width:0px;">
+        <tr>
+            <td class="left" style="border-width:0px;">
+                <div class="ordersList">
+                    <table id="orders" style="width:100%;color:White;">
+                        <tr style="color:White;background-color:#1C5E55;font-weight:bold;" class="header">
+                                    <td datafield="Provider">供货商</td>
+                                    <td datafield="Employee">操作员</td>
+                                    <td datafield="Node">分店</td>
+                                    <td datafield="Total">总计</td>
+                                    <td datafield="Time">时间</td>
+                                    <td>操作</td>
+                        </tr>
+                        <tr class="template" style="display:none">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <input type="button" value="删除" class="del" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td class="right" style="border-width:0px;">
+                 <div class="orderDetails">
+                    <table id="details" style="width:100%;color:White;">
+                        <tr style="color:White;background-color:#1C5E55;font-weight:bold;" class="header">
+			                        <td  datafield="Name">名称</td>
+                                    <td  datafield="Standards">规格</td>
+                                    <td  datafield="Unit">单位</td>
+                                    <td  datafield="Price">单价</td>
+                                    <td  datafield="MaterialType">类别</td>
+                                    <td  datafield="Amount">数量</td> 
+                        </tr>
+                        <tr class="template" style="display:none">
+                            <td style="text-align:left;font-size:smaller;"></td>
+                            <td style="text-align:left;font-size:smaller;"></td>
+                            <td style="width:50px;text-align:center;"></td>
+                            <td style="width:50px;text-align:right;"></td>
+                            <td style="width:50px;text-align:center;"></td>
+                            <td style="width:50px;text-align:right;font-weight:bold;"></td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+
+   
+</div>
+
+</div>
+
+
+
+
+
+
+@Html.Partial("LoadingDialog")
+

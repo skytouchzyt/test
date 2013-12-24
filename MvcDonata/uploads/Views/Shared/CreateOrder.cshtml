@@ -1,0 +1,138 @@
+﻿<script src="@Url.Content("~/Scripts/moduls/modulCreateorder.js")" type="text/javascript"></script>
+
+<style type="text/css">
+div.addProduct
+{
+   width:90%;
+    border:5px solid white;
+    padding:1em;
+    margin:1em; 
+}
+fieldset span 
+{
+     color:White;
+     margin:1em;
+}
+fieldset legend,div.addProduct,div.order
+{
+    color:White;
+    margin:1em;
+}
+fieldset
+{
+    margin:1em 0 0 0;
+}
+fieldset div
+{
+    padding:5px;
+}
+fieldset
+{
+    width:50%;
+}
+
+fieldset input[type='text'],fieldset select,fieldset input[type='number']
+{
+    background-color:#336699;
+    color:white;
+    font-weight:bolder;
+    font:bolder small "微软雅黑","黑体","文泉驿黑体";
+    width:200px;
+}
+
+
+
+
+fiedlset span
+{
+    width:100px;
+    text-align:right;
+}
+
+input.amount
+{
+    width:65px;
+    text-align:right;
+    background-color:#336699;
+    color:white;
+    font:bolder small "微软雅黑","黑体","文泉驿黑体";
+}
+input.price
+{
+    width:65px;
+    text-align:right;
+    background-color:#336699;
+    color:white;
+    font-style:italic;
+    font:bolder small "微软雅黑","黑体","文泉驿黑体";
+}
+
+tr.datarow.found
+{
+    background:#336699;
+}
+
+input.search
+{
+    width:300px;
+}
+
+#ProductList td
+{
+
+    text-align:center;
+
+}
+
+</style>
+
+<input type="hidden" id="node" value="@ViewBag.Node" />
+
+<div class="addProduct">
+
+<div><span>搜索:</span><input type="text" class="search top" placeholder="请输入拼音首字母或者汉字名称或者编号查找" /></div>
+<table id="ProductList" style="width:100%;">
+<tr style="color:White;background-color:#1C5E55;font-weight:bold;" class="header">
+        <td  datafield="ProductID">编号</td>
+		<td  datafield="Name">名称</td>
+        <td  datafield="Standards">规格</td>
+        <td  datafield="Unit" >单位</td>
+        <td  >单价</td>
+        <td  datafield="MaterialType" >类别</td>
+        <td >数量</td>
+        <td datafield="Total">小计</td>
+</tr>
+<tr class="template" style="display:none">
+<td style="text-align:center;color:White;"></td>
+<td style="text-align:left;color:White;"></td>
+<td style="text-align:left"></td>
+<td style="width:50px;text-align:center;"></td>
+<td style="width:70px;text-align:right;"><input type="number" class="price" /></td>
+<td style="width:50px;text-align:center;"></td>
+<td style="width:70px;text-align:center;"><input type="number" class="amount" max="100" min="0" /></td>
+<td style="width:70px;text-align:right;"></td>
+</tr>
+</table>
+<div><span>搜索:</span><input type="text" class="search bottom" placeholder="请输入拼音首字母或者汉字名称或者编号查找" /></div>
+<div style="text-align:right;width:100%;"><span>总计:</span><span class="total"></span></div>
+<div style="text-align:right;width:100%;">
+    <input type="button" value="打印模板" id="printOrderTemplate" style="margin:1em 0 0 0;"/>
+    <input type="button" value="提交订单" id="saveOrder" style="margin:1em 0 0 0;"/>
+</div>
+<form class="formAddProduct">
+    <fieldset>
+    <legend>添加新的商品</legend>
+    <div class="provider" style="display:none;"><span style="margin:0 6px 0 0;">供货商</span><input type="text" id="Provider" style="margin:0 0 0 6px;"/></div>
+    <div><span>名称</span><input type="text" id="Name" placeholder="必须填写" required/></div>
+    <div><span>规格</span><input type="text" id="Standards" placeholder="可不填写"/></div>
+    <div><span>单位</span><input type="text" id="Unit" placeholder="必须填写" required/></div>
+    <div><span>类别</span>
+    <select id="MaterialType" style="margin:0 0 0 -4px;" >
+    </select>
+    </div>
+    <div><span>单价</span><input type="text"   id="Price" value="0" required/></div>
+    <div><span>数量</span><input type="text"  value="1" id="Amount"  required/></div>  
+    <div><input type="submit" id="addNewProduct" value="添加" /></div>
+    </fieldset>
+</form>
+</div>

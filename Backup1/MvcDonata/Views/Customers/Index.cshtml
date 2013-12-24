@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewBag.Title = "顾客资料";
+}
+<script src="/Scripts/jquery.jqote2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(
+        function () {
+            var customer;
+            $("#queryButton").click(
+                function () {
+                    $.getJSON("/Customers/GetCustomerInfoByPhone", { Phone: $("#queryPhone").val() },
+                        function (r) {
+                            customer = r;
+                            updateUI();
+                        }
+                        );
+                }
+                );
+            $("#saveButton").click(
+                function () {
+                    if (customer) {
+      
+                        $.post("/Customers/SaveCustomer", { datas: JSON.stringify(customer),newPhone:$("#Phone").val() },
+                            function (result) {
+                                if (result.successed) {
+                                    alert("保存顾客资料成功！");
+                                    return;
+                                }
+                                else {
+                                    alert("保存顾客资料出错：" + result.errorMessage);
+                                    return;
+                                }
+                            }
+                            ).error(function () {
+                                alert("保存失败，请重试！");
+                            }
+                            );
+                    }
+                }
+                );
+            ///////////////////
+
+            function updateUI() {
+                for (var v in customer) {
+                    $("#" + v).val(customer[v]);
+                }
+                $("#Addresses").html(""); //清空原来的地址列表
+                $.each(customer.Addresses,
+                    function (index, a) {
+                        var $li = $($("#template-address").jqote(a)).appendTo("#Addresses");
+
+                        $("input.editAddress",$li).click(
+                            function () {
+                                var add = customer.Addresses[$(this).parent().index()];
+                                var a = prompt("编辑地址",add.Where);
+                                if (!a)
+                                    return false;
+                                add.Where = a;
+                                updateUI();
+                            }
+                            );
+                        ///////////////////////////
+                        $("input.deleteAddress",$li).click(
+                            function () {
+                                if (confirm("确定要删除此地址码？")) {
+                                    var index = $(this).parent().index();
+                                    customer.Addresses.splice(index, 1);
+                                    updateUI();
+                                }
+                            }
+                            );
+                    }
+                    );
+            }
+
+            $("input.addAddress").click(function () {
+                if (!customer)
+                    return false;
+                var a = prompt("请输入地址：");
+                if (!a)
+                    return false;
+                //检测地址是否重复
+                var find=false;
+                $.each(customer.Addresses,
+                    function (index, add) {
+                        if (a === add) {
+                            find = true;
+                            return false;
+                        }
+                    }
+                    );
+                if (find) {
+                    alert("此地址已经加入，请不要重复添加！");
+                    return false;
+                }
+                customer.Addresses.push({
+                    Where: a
+                });
+                updateUI();
+            }
+            );
+            ////////////////////////
+            
+            $("#markLastBirthdayDiscounted").click(function () {
+                if (customer) {
+                    if (!customer.VIP_Number) {
+                        alert("不是会员，无法设置此项！");
+                        return false;
+                    }
+                    customer.LastBirthdayDiscounted = new Date().format("yyyy-mm-dd HH:MM:ss");
+                    updateUI();
+                }
+            }
+            );
+
+        }
+        );
+</script>
+
+<h2>顾客资料</h2>
+
+<style type="text/css">
+
+</style>
+
+<script type="text/html" id="template-address">
+    <![CDATA[
+    <li>
+        <input type="text" class="address" style="width:300px;" readonly value="<%=this.Where%>"/>
+        <input type="button" value="编辑" class="editAddress"/>
+        <input type="button" value="删除" class="deleteAddress" />
+    </li>
+    ]]>
+</script>
+
+<div class="query"><input type="number" id="queryPhone" placeholder="请输入电话号码或者VIP号码查询"/><input type="button" value="查询" id="queryButton"/></div>
+
+<div><input type="button" value="保存顾客资料" id="saveButton" /></div>
+
+<div class="customer">
+    <div><span>客户电话:</span><input id="Phone" type="text" /> </div>
+    <div><span>创建时间:</span><input id="CreatedTime" type="text" readonly /></div>
+    <div><span>生日优惠:</span><input id="LastBirthdayDiscounted" type="text" readonly /><input type="button" value="标记已消费" id="markLastBirthdayDiscounted" /></div>
+    <div><span>会员特惠:</span><input id="LastWeeklyDiscounted" type="text" readonly /></div>
+    <div><span>会员卡号:</span><input id="VIP_Number" type="text"  readonly /></div>
+    <div><span>会员余额:</span><input id="Left" type="text" readonly /></div>
+    <div>
+        <span>地址列表：</span>
+        <ul id="Addresses">
+
+        </ul>
+        <input type="button" value="添加" class="addAddress" />
+    </div>
+</div>

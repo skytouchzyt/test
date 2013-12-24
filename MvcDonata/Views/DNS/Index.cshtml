@@ -1,0 +1,54 @@
+﻿@{
+
+
+    ViewBag.Title = "分店列表";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="../../Scripts/angular.min.js"></script>
+
+<script type="text/javascript">
+
+</script>
+
+
+
+<div ng-app>
+    <table id="employees" style="width:100%;" ng-controller="DNSesListCtrl">
+<tr style="color:White;background-color:#1C5E55;font-weight:bold;" class="header">
+		<td>分店</td>
+        <td>客户端版本号</td>
+        <td>分店服务器版本号</td>
+        <td>监控端口</td>
+        <td>分店IP地址</td>
+        <td>最后更新时间</td>
+</tr>
+<tr  ng-repeat="dns in DNSes">
+    <td style="text-align:left;">{{dns.Node}}</td>
+    <td style="text-align:left;">{{dns.ClientVersion}}</td>
+    <td style="text-align:left;">{{dns.LocalServerVersion}}</td>
+    <td style="text-align:left;">{{dns.Port}}</td>
+    <td style="text-align:right">{{dns.IP}}</td>
+    <td style="text-align:center;">{{dns.LastUpdatedTime}}</td>
+</tr>
+</table>
+
+<script type="text/javascript">
+    function DNSesListCtrl($scope, $http) {
+        setInterval(
+            function () {
+                $.getJSON("/DNS/getDNSList", function (result) {
+                    if (result.successed) {
+                        $scope.$apply(function () {
+
+                            $scope.DNSes = JSON.parse(result.result);
+                        }
+                        );
+                    }
+                }
+                );
+            },
+            10000
+            );
+    }
+</script>
+</div>

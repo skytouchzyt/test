@@ -1,0 +1,223 @@
+﻿@using MvcDonata.Models
+@using System.Collections;
+@using Tools;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>电话:@ViewBag.Phone</title>
+    <link href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.7.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.19.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/md5-min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/DateTime.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/cookie.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/tools.js")" type="text/javascript"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/dateformat.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.enable.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/createnewphoneorder.js")" type="text/javascript"></script>   
+    <link href="@Url.Content("~/content/phoneorder.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="PhoneOrder" style="left: -16px;">
+    <div class="logo"><img src="../../Content/Images/logo.jpg" alt="多纳达比萨"></div>
+    <h1 id="title">多纳达比萨外卖</h1>
+    <div class="orderInfo"><span>电话:</span><input type="text" id="phone" value="@ViewBag.Phone"/> 
+    <span>VIP:</span><input type="number" readonly id="vip" />
+    </div>
+    <div class="orderInfo"><span>地址:</span><input type="text" id="address"/></div>
+    <div class="orderInfo"><span>备注:</span><input type="text" id="remark"/></div>
+    <div class="orderInfo">
+        <input  name="orderType" type="radio" value="外卖"/>外卖
+        <input  name="orderType" type="radio" value="外带"/>外带
+        <input  name="orderType" type="radio" value="加单"/>加单
+        <input  name="orderType" type="radio" value="堂食"/>堂食
+        <input  name="orderType" type="radio" value="微信"/>微信
+    </div>
+    <div class="orderInfo">
+        <input  name="Node" type="radio" value="传媒店" />传媒店
+        <input  name="Node" type="radio" value="二外店" />二外店
+        <input  name="Node" type="radio" value="管庄店" />管庄店
+        <input  name="Node" type="radio" value="test" />test
+    </div>
+
+    <div class="orderInfo">
+        <input  name="Pay" type="radio" value="现金" />现金
+        <input  name="Pay" type="radio" value="VIP卡" />VIP卡
+        <input  name="Pay" type="radio" value="POS机" />POS机
+    </div>
+
+    <fieldset class="orderDetails">
+        <legend>订单明细</legend>
+        <div style="text-align:left">
+            <input type="button" value="提交订单" id="saveOrder"/>
+        </div>
+        <div style="text-align:right">
+            总计:￥<span class="total">0</span>
+        </div>
+        <div>
+            <ul id="orderDetails">
+            </ul>
+        </div>
+  
+    </fieldset>
+</div>
+<div id="DishesDiv">
+    <ul class="dishList">
+        <li class="template dish" style="display:none">                          
+            <div class="boxgrid">
+                <a class="add2Order" href="#">
+                    <img class="dish" src="../../Content/images/logo.jpg" alt="听雪碧" />
+                </a>
+                <div class="cover boxcaption" style="top: 100px;">
+                    <div style="float:left;width:75%;text-align:left;"><span class="dishName">听雪碧</span></div>
+                    <div style="float:right;width:25%;text-align:right;"><span class="price">￥6.00</span></div>
+                    <div style="float:left;width:100%;display:none;text-align:left;" class="remark"><p class="remark"></p></div>
+                    <div style="float:right;width:100%;text-align:right;display:none;" class="operation">
+                        <a class="add" href="#"><img src="../../Content/Images/add.jpg" /></a>
+                        <a class="sub" href="#"><img src="../../Content/Images/sub.jpg" /></a>
+                        <a class="del" href="#"><img src="../../Content/Images/del.jpg" /></a>
+                        <a class="remark" href="#"><img src="../../Content/Images/remark.jpg" /></a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul> 
+</div>
+<div id="footer">
+Donata 2012
+</div>
+
+<div id="remarkDialog" style="display:none;" title="备注" class="dialog">
+<div><label>备注</label><input type="text" class="remark" /></div>
+<div>
+    <input type="button" class="btnOK" value="确定" />
+    <input type="button" class="btnCancel" value="取消" />
+</div>
+</div>
+
+<div id="pizzaDialog" style="display:none;" title="备注" class="dialog">
+    <div>
+        <input type="radio" name="pizza" class="small"  checked="checked" value="9"/><label>9寸</label>
+        <input type="radio" name="pizza" class="big" value="12"/><label>12寸</label>
+        <input type="radio" name="pizza" class="italy" value="12薄"/><label>薄饼</label>
+    </div>
+    <div>
+        <input type="checkbox" class="jb" value="金牌卷边"/><label>加芝心卷边</label>
+        <input type="checkbox" class="nl" value="双份奶酪"/><label>加双份奶酪</label>
+    </div>
+<div><label>备注</label><input type="text" class="remark" /></div>
+<div>
+    <input type="button" class="btnOK" value="确定" />
+    <input type="button" class="btnCancel" value="取消" />
+</div>
+</div>
+
+
+<div id="sandwitchDialog" style="display:none;" title="备注" class="dialog">
+    <div>
+        <input type="radio" name="sandwich" class="small"  checked="checked" value="6"/><label>6寸</label>
+        <input type="radio" name="sandwich" class="big" value="12"/><label>12寸</label>
+    </div>
+    <div>
+        <input type="checkbox" class="jd" value="加鸡蛋沙拉" /><label>加鸡蛋沙拉</label>
+        <input type="checkbox" class="rou" value="加双份肉" /><label>加双份肉</label>
+    </div>
+<div><label>备注</label><input type="text" class="remark" /></div>
+<div>
+    <input type="button" class="btnOK" value="确定" />
+    <input type="button" class="btnCancel" value="取消" />
+</div>
+</div>
+
+
+<div id="drinkDialog" style="display:none;" title="备注" class="dialog">
+    <div>
+        <input type="radio" name="specialDrink"  value="(冰)"/><label>冰</label>
+        <input type="radio" name="specialDrink"  value="(常温)"/><label>常温</label>
+        <input type="radio" name="specialDrink"  value="(热)"/><label>热</label>
+    </div>
+<div><label>备注</label><input type="text" class="remark" /></div>
+<div>
+    <input type="button" class="btnOK" value="确定" />
+    <input type="button" class="btnCancel" value="取消" />
+</div>
+</div>
+
+<div id="suit3Dialog" style="display:none;" title="备注" class="dialog">
+<fieldset>
+    <legend>比萨(任选一份) 小吃 饮品(任选三份)</legend>
+    <ul class="part1">
+    
+    </ul>
+</fieldset>
+<fieldset>
+    <legend>沙拉(任选一份)</legend>
+    <ul class="part2">
+</ul>
+</fieldset>
+
+<div><label>备注</label><input type="text" class="remark" /></div>
+<div>
+    <input type="button" class="btnOK" value="确定" />
+    <input type="button" class="btnCancel" value="取消" />
+</div>
+</div>
+
+<div id="suit2Dialog" style="display:none;" title="备注" class="dialog">
+<div>
+    <fieldset>
+        <legend>比萨,烤翅(各任选一份)</legend>
+        <ul class="part1">
+        </ul>
+    </fieldset>
+</div>
+        
+<div>
+    <fieldset>
+            <legend>饮品(任选两份)</legend>
+            <ul class="part2">
+            </ul>
+        </fieldset>
+</div>
+<div><label>备注</label><input type="text" class="remark" /></div>
+<div>
+    <input type="button" class="btnOK" value="确定" />
+    <input type="button" class="btnCancel" value="取消" />
+</div>
+</div>
+              
+<div id="suitLunchDialog" style="display:none;" title="备注" class="dialog">
+<div>
+    <fieldset>
+        <legend>主食,饮品(任选一份)</legend>
+        <ul class="part1">
+        </ul>
+    </fieldset>
+</div>
+<div><label>备注</label><input type="text" class="remark" /></div>
+<div>
+    <input type="button" class="btnOK" value="确定" />
+    <input type="button" class="btnCancel" value="取消" />
+</div>
+</div>
+
+<div id="confirmDialog" style="display:none;" title="提问" class="dialog">
+<div><span class="message"></span></div>
+<div>
+    <input type="button" class="btnOK" value="确定" />
+    <input type="button" class="btnCancel" value="取消" />
+</div>
+</div>
+
+<div id="loadingDialog" style="display:none;text-align:center;" title="正在传送数据,请稍后...">
+<img alt="加载中..." src="../../Content/Images/loading.gif" style="width:100px;height:100px;" />
+</div>
+<div id="version">@BusinessObject.Version</div>
+</body>
+</html>

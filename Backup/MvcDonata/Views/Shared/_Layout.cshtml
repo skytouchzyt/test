@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.6.4.min.js")" type="text/javascript"></script>
+    @*<script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")" type="text/javascript"></script>*@
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.18.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/md5-min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/DateTime.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/jquery.scrollTo.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/jquery.localscroll.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/jquery.template.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/cookie.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/tools.js")" type="text/javascript"></script>
+    <script type="text/javascript" src="/Scripts/dateformat.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.enable.js")" type="text/javascript"></script>
+</head>
+<body>
+    <div class="page">
+        <header class="fixmenu">
+            <div id="title">
+                <h1>Donata餐饮管理系统</h1>
+            </div>
+            <div id="logindisplay">
+                @Html.Partial("_LogOnPartial")
+            </div>
+            <nav>
+                <ul id="menu">
+                    <li>@Html.ActionLink("首页", "Index", "Home")</li>
+                    <li>@Html.ActionLink("后厨","BarPad","DineOrder")</li>
+                    @if (User.IsInRole("网管")) 
+                    {
+                        //只有管理员才能注册员工
+                        <li>@Html.ActionLink("注册新的员工", "Register", "Account")</li>
+                        <li>@Html.ActionLink("员工列表","ListEmployees","Account")</li>
+                        <li>@Html.ActionLink("餐品管理","Index","Dishes")</li>
+                    }
+                   
+                   
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("订单查看", "Index", "ViewOrders")</li>
+                        <li>@Html.ActionLink("营业报表", "Index", "Reports")</li>
+                        <li>@Html.ActionLink("库存管理", "Index", "Store")</li>
+                        <li>@Html.ActionLink("修改密码", "ChangePassword", "Account")</li>
+                    }
+                    <li>@Html.ActionLink("关于", "About", "Home")</li>
+                </ul>
+            </nav>
+        </header>
+        <section id="main" >
+            @RenderBody()
+        </section>
+        <footer>
+        </footer>
+    </div>
+</body>
+</html>

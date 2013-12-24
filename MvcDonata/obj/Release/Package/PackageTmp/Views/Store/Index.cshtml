@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "库存管理";
+}
+
+<h2>库存管理</h2>
+
+<style type="text/css">
+ div.order
+ {
+     margin:2em;
+     height:5em;
+ }
+span.order
+{
+    text-align:center;
+    vertical-align:middle;
+}
+</style>
+<div class="order"><span class="order">@Html.ActionLink("订货管理", "Order", "Store")</span></div>
+<div class="order"><span class="order">@Html.ActionLink("进货管理", "StockIn", "Store")</span></div>
+<div class="order"><span class="order">@Html.ActionLink("查看库存", "ViewStock", "Store")</span></div>
+
+<div class="order"><span class="order">@Html.ActionLink("现金管理", "CashManager", "Store")</span></div>
+
+

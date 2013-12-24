@@ -1,0 +1,109 @@
+﻿@model IEnumerable <IGrouping<string,MvcDonata.Models.DishModel>>
+           
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<meta name="viewport" content="width=device-width;initial-scale=1.0">
+
+<link rel="stylesheet" href="http://rodesk.nl/wp-content/themes/rodesk/css/style.css">
+
+<script type="text/javascript" src="http://rodesk.nl/wp-content/themes/rodesk/js/jquery.1.7.1.min.js"></script>
+
+
+
+<link rel="alternate" type="application/rss+xml" title="Rodesk &raquo; Creatief interactiebureau Reacties feed" href="http://rodesk.nl/wat-is-jouw-visie/feed/" />
+<link rel='stylesheet' id='wp-pagenavi-css'  href='http://rodesk.nl/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70' type='text/css' media='all' />
+
+
+
+
+<style type="text/css" media="screen">
+	  html { margin-top: 0px !important; }
+	  * html body { margin-top: 0px !important; }
+	  </style>
+</head>
+
+<body class="home page page-id-2 page-template-default">
+
+	<!-- Wrapper -->
+    <section id="Wrapper" role="document">
+
+        <div id="Navi" role="navigation">
+        	<div id="NaviWrap">
+                <nav>
+                    
+                                           <a href="#Home" id="Logo">Donata Pizza</a>
+                    
+											<ul id="menu-navigatie" class="menu">
+                                            @foreach (var g in Model)
+                                            {
+                                                <li id="menu-item-6" class="Home activeMenuItem menu-item menu-item-type-custom menu-item-object-custom menu-item-6"><a href="#@g.Key"><span>@g.Key</span></a></li>
+                                            }
+                                            </ul>                                    	
+			                   
+                </nav>
+            </div>
+        </div>
+
+
+        @foreach(var g in Model)
+        {
+	        <section id="@g.Key" role="banner">
+
+                <table style="margin:20">
+    <tr>
+        <th>
+            餐品名称
+        </th>
+        <th>
+            价格
+        </th>
+        <th>
+            台位
+        </th>
+        <th>
+            类别
+        </th>
+        <th>
+            计数
+        </th>
+        <th>
+            图片
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in g.ToList()) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DefaultBar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Count)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+            </section>
+        }
+</body>
+</html>

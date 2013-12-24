@@ -1,0 +1,270 @@
+﻿body {
+ margin: 0;
+ padding: 0;
+ font-family: Georgia, Times, "Times New Roman", serif;
+ color: black;
+ width: 98%;
+ height:100%;
+ text-align:center;
+ border: 5px solid #ec000c;
+
+}
+#header {
+ background-color: #666;
+ border-bottom: 1px solid #ec000c;
+}
+#DishesDiv {
+ float: right;
+ width: 90%;
+ height:90%;
+ text-align:right;
+}
+#DishesDiv ul
+{
+    float:right;
+    text-align:right;
+}
+
+#PhoneOrder 
+{
+    float:left;
+    position:fixed;
+    left:-550px;
+    width:700px;
+    border:5px solid #ec000c;
+    margin:1em;
+    padding:1em;
+    height:90%;
+    overflow:auto;
+    z-index:1001;
+    background-color:White;
+    opacity: .8; 
+    border-radius: 10px 10px 10px 10px;
+}
+div.orderInfo
+{
+    line-height:1.5em;
+    text-align:left;
+    margin:0.5em;
+}
+#address,#remark
+{
+    width:80%;
+}
+
+
+#footer {
+ clear: both;
+ background-color: #ccc;
+ border-top: 1px solid #333;
+} 
+
+/*餐品显示动画*/
+
+
+#PhoneOrder .logo
+{
+    position:absolute;
+    top:0;
+    left:-36px;
+}
+
+#PhoneOrder #title
+{
+    height:131px;
+    text-align:right;
+    margin:0px 100px 0px 0px;
+    line-height:131px;
+    color:#ec000c;
+}
+
+
+
+.boxgrid
+{ 
+	width: 200px; 
+	height: 124px; 
+	margin:2px; 
+	float:left; 
+	background:#161613; 
+	border: dashed 2px green;
+	overflow: hidden; 
+	position: relative; 
+	border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    background-color:White;
+}
+
+.boxgrid img.dish{ 
+	position: absolute; 
+	top: 5px; 
+	left: 5px; 
+	width:190px;
+	height:114px;
+	border: 0; 
+}
+.boxgrid p{ 
+	padding: 0 10px; 
+	color:#afafaf; 
+	font-weight:bold; 
+	font:10pt "Lucida Grande", Arial, sans-serif; 
+}
+				
+.boxcaption{ 
+float: left; 
+position: absolute; 
+background: #000; 
+height: 100px; 
+width: 100%; 
+opacity: .8; 
+/* For IE 5-7 */
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+/* For IE 8 */
+-MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}
+
+ 				
+.cover
+{
+ 	top:100px;
+ 	width:190px;
+ 	left:5px;
+ 	background:url(/content/images/coverbg.jpg);
+}
+ 
+ul,li
+{
+    list-style:none;
+}
+
+li
+{
+    float:right;
+}
+
+
+
+ul#part1
+{
+    height:150px;
+}
+ 
+ ul#orderDetails
+ {
+    padding:0;
+    margin:0;
+ }
+
+ul#orderDetails li
+{
+    float:left;
+}
+
+ .boxcaption span
+ {
+     color:White;
+ }
+
+ 
+ .boxgrid_:hover
+ {
+     border:2px solid blue;
+ }
+ 
+ .boxgrid .cover .dishName
+ {
+     color:#F59800;
+
+ }
+ .boxgrid .cover .price
+ {
+     color:#F59800;
+
+ }
+ 
+ #header ul
+ {
+     list-style-type:none;
+ }
+ #header ul li
+ {
+     display:inline;
+ }
+ .orderDetails
+ {
+
+ }
+
+ .orderDetails .header
+ {
+     background:#ec000c;
+     width:100%;
+ }
+ 
+ .orderDetails .item
+ {
+     border-bottom:1px solid #ec000c;
+     border-left:1px solid #ec000c;
+     border-right:1px solid #ec000c;
+     width:100%;
+ }
+ 
+ .orderDetails .total
+ {
+     font-size:200%;
+     text-align:right;
+ }
+ 
+ .orderDetails .item:hover
+ {
+     background-color:#F5D6A9;
+ }
+ 
+ .orderDetails .dishName
+ {
+     width:40%;
+     text-align:left;
+ }
+ .orderDetails .price
+ {
+     width:15%;
+     text-align:center;
+ }
+ .orderDetails .count
+ {
+     width:15%;
+     text-align:center;
+ }
+ 
+ .orderDetails .operation
+ {
+     width:30%;
+ }
+ 
+ .orderDetails .remark .dishName,.orderDetails .attach .dishName
+ {
+     text-indent:1em;
+     
+ }
+
+.disabled
+{
+    color:Gray;
+}
+
+.suitSelected .boxgrid
+{
+    border:2px solid #ec000c;
+}
+
+.remark
+{
+    margin:0px;
+    padding:0px;
+    vertical-align:top;
+    text-align:left;
+}
+
+
+

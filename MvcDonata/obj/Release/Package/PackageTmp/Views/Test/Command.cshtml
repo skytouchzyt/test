@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Command";
+}
+
+<h2>Command</h2>
+
+命令:<input type="text" id="command" /><input type="button" id="execute" value="执行" />
+<p id="result"></p>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#execute").click(function () {
+            $.get("/test/execute", { command: $("#command").val() },
+            function (result) {
+                $("#result").html(result);
+            }
+            );
+        }
+        );
+    }
+);
+</script>

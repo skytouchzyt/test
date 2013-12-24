@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "BackBone";
+}
+
+<h2>BackBone</h2>
+<script src="../../Scripts/underscore.js"></script>
+<script src="../../Scripts/backbone-min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var phoneOrder
+            = Backbone.Model.extend({});
+        
+        var phoneOrders = Backbone.Collection.extend(
+            {
+                
+            }
+            );
+    }
+    );
+</script>
+
+<script type="text/template" id="phoneorder-template">    
+<tr class="view" >
+    <td><%=BarCode%></td>
+    <td><%=Phone%></td>
+    <td><%=Address%></td>
+    <td><%=Node%></td>
+    <td><%=Total%></td>
+    <td><%=Time%></td>
+    <td><%=Received%></td>
+</tr>
+</script>
+
+<table cellspacing="0" cellpadding="3" rules="rows" id="orderList" style="background-color:White;border-color:#E7E7FF;border-width:1px;border-style:None;width:755px;border-collapse:collapse;width:90%">
+	    <tr style="color:#F7F7F7;background-color:#4A3C8C;font-weight:bold;" class="header">
+			    <td datafield="BarCode" width="50px">编号</td>
+                <td datafield="Phone">客户电话</td>
+                <td datafield="Address">客户住址</td>
+                <td datafield="Node">分店</td>
+                <td datafield="Total">总金额</td>
+                <td datafield="Time">时间</td>
+                <td datafield="Received">是否收到</td>
+       </tr>
+
+        <tr class="pager">
+        <td colspan="7"><ul class="pager"><li class="template" style="display: inline;list-style: none;" ><a href="#"></a></li></ul></td>
+        </tr>
+ </table>
